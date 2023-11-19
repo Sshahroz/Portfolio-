@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body style="background-color: #343541">
 
 	<!--================ Start Header Area =================-->
 	<header class="header_area">
@@ -36,8 +36,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-end">
-							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+							<li class="nav-item "><a class="nav-link" href="index.html">About ME</a></li>
+							<li class="nav-item"><a class="nav-link" href="resume.html">resume</a></li>
 							<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
 							<li class="nav-item active"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
 							<li class="nav-item submenu dropdown">
@@ -65,24 +65,10 @@
 	</header>
 	<!--================ End Header Area =================-->
 
-    <!--================ Start Banner Area =================-->
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="container">
-                <div class="banner_content text-center">
-                    <h2>Portfolio</h2>
-                    <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="portfolio.html">Portfolio</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================ End Banner Area =================-->
+
 
 	<!--================Start Portfolio Area =================-->
-	<section class="portfolio_area section_gap_top" id="portfolio">
+	<section class="portfolio_area 	" id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -94,33 +80,122 @@
             </div>
             <div class="filters portfolio-filter">
                 <ul>
-                    <li class="active" data-filter="*">all</li>
-                    <li data-filter=".popular">popular</li>
-                    <li data-filter=".latest"> latest</li>
-                    <li data-filter=".following">following</li>
-                    <li data-filter=".upcoming">upcoming</li>
+                    <li class="active primary_btn"  data-filter="*"><span>all</span></li>
+                    <li class=" primary_btn"  data-filter=".popular"><span>Games</span></li>
+                    <li class="primary_btn"data-filter=".latest"> <span>3d Design</span></li>
+                    <li class="primary_btn" data-filter=".following"><span>Animations</span></li>
+                    <li class="primary_btn"data-filter=".upcoming"><span>Vr (Virtual reality)</span></li>
                 </ul>
             </div>
     
             <div class="filters-content">
 				<div class="row portfolio-grid justify-content-center">
+
+
+
+					
+
+
+
+
+
 					<div class="col-lg-4 col-md-6 all latest">
-						<div class="portfolio_box">
-							<div class="single_portfolio">
-								<img class="img-fluid w-100" src="img/portfolio/p1.jpg" alt="">
-								<div class="overlay"></div>
-								<a href="img/portfolio/p1.jpg" class="img-gal">
-									<div class="icon">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</a>
-							</div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">minimal design</a></h4>
-								<p>Animated, portfolio</p>
-							</div>
-						</div>
+					
 					</div>
+
+
+
+
+				<!-- Gallery -->
+				<div class="row  all popular">
+					<div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" 
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Boat on Calm Water"
+						button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+						<h2>Modal Example</h2>
+					
+					<div class="container">
+						
+						<!-- Trigger the modal with a button -->
+					
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" role="dialog">
+						  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+						  
+							<!-- Modal content-->
+							<div class="modal-content">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"></h4>
+							  </div>
+							  <div class="modal-body">
+								<img
+								src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+								class="w-100 shadow-1-strong rounded mb-4"
+								alt="Wintry Mountain Landscape"
+							/>
+<h1>Hewloooo</h1>
+
+
+
+								
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							  </div>
+							</div>
+							
+						  </div>
+						</div>
+						
+					  </div>
+
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Wintry Mountain Landscape"
+
+						
+					/>
+					
+					</div>
+
+					<div class="col-lg-4 mb-4 mb-lg-0">
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Mountains in the Clouds"
+					/>
+
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Boat on Calm Water"
+					/>
+					</div>
+
+					<div class="col-lg-4 mb-4 mb-lg-0">
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Waves at Sea"
+					/>
+
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+						class="w-100 shadow-1-strong rounded mb-4"
+						alt="Yosemite National Park"
+					/>
+					</div>
+				</div>
+				<!-- Gallery -->
+
+
+
+
+
 					<div class="col-lg-4 col-md-6 all popular">
 						<div class="portfolio_box">
 							<div class="single_portfolio">
@@ -263,32 +338,7 @@
     </section>
     <!--================End Portfolio Area =================-->
     
-    <!--================ Start Newsletter Area =================-->
-    <section class="newsletter_area">
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-12">
-                    <div class="subscription_box text-center">
-                        <h2 class="text-uppercase text-white">get update from anywhere</h2>
-                        <p class="text-white">
-                            Bearing Void gathering light light his eavening unto dont afraid. 
-                        </p>
-                        <div class="subcribe-form" id="mc_embed_signup">
-                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-                                <input name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
-                                <div style="position: absolute; left: -5000px;">
-                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                </div>
-                                <button class="primary-btn hover d-inline">Get Started</button>
-                                <div class="info"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================ End Newsletter Area =================-->
+  
         
         <!--================Footer Area =================-->
 	<footer class="footer_area">

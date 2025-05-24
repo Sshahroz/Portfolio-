@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             media: [
                // { type: "video", url: "https://www.youtube.com/embed/example1" },
                 {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
-                thumbnail: "images/WheelLoaderKomatsuWA1200/thumbnailSkechfab.png" }
+                thumbnail: "images/3DModel/WheelLoaderKomatsuWA1200/thumbnailSkechfab.png" }
             ],
             technologies: ["Blender","Substance Painter"],
             category: "3d"
@@ -44,13 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
             subtitle: "3d floor Plan",
             description: "This 3D floor plan is designed from the client’s provided 2D layout, converted into a realistic one-to-one scale model. The purpose is to help potential buyers or residents visualize the internal structure of the terraced house, making it easier for them to assess if the space meets their needs.",
             media: [
-                { type: "image", url: "images/TerracedHouse/BasementLeft.png" },
-                { type: "image", url: "images/TerracedHouse/GroundLeft.png" }, 
-                   { type: "image", url: "images/TerracedHouse/1srtLeft.png" },          
-                { type: "image", url: "images/TerracedHouse/TopLeft.png" },
-                  {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
-                thumbnail: "images/WheelLoaderKomatsuWA1200/thumbnailSkechfab.png" }
-               // { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhSWXtrArr0D2RJ" }
+                { type: "image", url: "images/3DModel/TerracedHouse/BasementLeft.png" },
+                { type: "image", url: "images/3DModel/TerracedHouse/GroundLeft.png" }, 
+                { type: "image", url: "images/3DModel/TerracedHouse/1srtLeft.png" },          
+                { type: "image", url: "images/3DModel/TerracedHouse/TopLeft.png" },
+            
+               // { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhWXtrArr0D2RJ" }
             ],
             technologies: ["Blender",],
             codeLink2: "https://www.behance.net/gallery/161902367/3d-floor-plan",
@@ -62,8 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subtitle: "3d model",
             description: "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
             media: [
-                { type: "image", url: "images/loader.png" },
-               // { type: "video", url: "https://www.youtube.com/embed/example1" },
+                { type: "image", url: "https://mir-s3-cdn-cf.behance.net/projects/max_808/ae0919164750399.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png" },
                 {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
                 thumbnail: "https://media.sketchfab.com/models/f766a86176354721a06a333f6903aad7/thumbnails/28cd7c1e20a347a794941652041fd803/51efbdb0d4d54d02a1f8554ad1728c6b.jpeg" }
             ],
@@ -72,6 +70,58 @@ document.addEventListener('DOMContentLoaded', function() {
             codeLink: "#",
             codeLink2: "#",
             category: "vr"
+        },
+
+         {
+            id: 4,
+            title: "Build Apartment",
+            subtitle: "3d Floor plan",
+            description: "builder provides a 2D floor plan for an apartment,I convert it into a realistic 3D model which helps buyers and investors visualize the final space before construction is complete.",
+            media: [
+                { type: "image", url: "images/3DModel/Build Apartment/10.png" },
+                { type: "image", url: "images/3DModel/Build Apartment/11.png" },
+                { type: "image", url: "images/3DModel/Build Apartment/12.png" },
+                { type: "image", url: "images/3DModel/  Build Apartment/13.png" },
+                
+            
+            ],
+            technologies: ["Blender"],
+            category: "3d"
+        },
+
+          {
+            id: 5,
+            title: "Family house 3D animation",
+            subtitle: "Modern high tech 1700 Square Foot House",
+            description: "In this project, I transformed a 1,700 sq. ft. house floor plan into a realistic 3D model to showcase the final living space before construction. Using advanced design tools, I created detailed visualizations of the interior and exterior, including: Accurate room layouts (bedrooms, kitchen, living areas). Modern interior styling (furniture, lighting, textures). Realistic materials & finishes (flooring, wall colors, cabinetry). Interactive walkthroughs for a virtual tour experience",
+            media: [
+                { type: "image", url: "images/VideoAnimation/Familyhouse/1.jpg" },
+                { type: "image", url: "images/VideoAnimation/Familyhouse/2.jpg" },
+                { type: "image", url: "images/VideoAnimation/Familyhouse/3.jpg" },
+                { type: "video", url: "https://www.youtube.com/embed/DRhrJCblzKs?si=ZLK8y655suLtI3Wu" },
+              
+                
+            
+            ],
+            technologies: ["Blender","Twinmotion"],
+            category: "3d"
+        },
+
+         {
+            id: 6,
+            title: "Immersive VR House Tour",
+            subtitle: "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+            description: "Step inside a fully immersive 3D house tour designed for Oculus VR! This Unity-built experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+            media: [
+                { type: "video", url: "https://www.youtube.com/embed/45NTGu7zKZ8?si=M1psvM9M9EmVkujU" },
+                { type: "image", url: "images/VRProject/VRHouseTour/1.png" },
+                { type: "image", url: "images/VRProject/VRHouseTour/2.png" },
+              
+                
+            
+            ],
+            technologies: ["Blender","Twinmotion"],
+            category: "3d"
         },
         // ... other projects ...
     ];

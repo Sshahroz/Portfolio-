@@ -26,19 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const projects = [
         {
             id: 1,
-            title: "3D Loader",
-            subtitle: "VR Project",
-            description: "A 3D loading animation created for VR applications with smooth transitions and visual effects.",
+            title: "Wheel Loader Komatsu WA1200",
+            subtitle: "3d model",
+            description: "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
             media: [
-                { type: "image", url: "images/loader.png" },
-                { type: "video", url: "https://www.youtube.com/embed/example1" }
+               // { type: "video", url: "https://www.youtube.com/embed/example1" },
+                {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
+                thumbnail: "images/WheelLoaderKomatsuWA1200/thumbnailSkechfab.png" }
             ],
-            technologies: ["Unity", "C#", "Shader Graph"],
-            projectLink: "#",
-            codeLink: "#",
-            codeLink2: "#",
-            category: "vr"
+            technologies: ["Blender","Substance Painter"],
+            category: "3d"
         },
+        
           {
             id: 2,
             title: "Terraced House",
@@ -49,11 +48,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 { type: "image", url: "images/TerracedHouse/GroundLeft.png" }, 
                    { type: "image", url: "images/TerracedHouse/1srtLeft.png" },          
                 { type: "image", url: "images/TerracedHouse/TopLeft.png" },
+                  {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
+                thumbnail: "images/WheelLoaderKomatsuWA1200/thumbnailSkechfab.png" }
                // { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhSWXtrArr0D2RJ" }
             ],
             technologies: ["Blender",],
             codeLink2: "https://www.behance.net/gallery/161902367/3d-floor-plan",
             category: "3d"
+        },
+         {
+            id: 3,
+            title: "Wheel Loader Komatsu WA1200",
+            subtitle: "3d model",
+            description: "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
+            media: [
+                { type: "image", url: "images/loader.png" },
+               // { type: "video", url: "https://www.youtube.com/embed/example1" },
+                {type: "sketchfab",  url: "https://sketchfab.com/models/f766a86176354721a06a333f6903aad7/embed",
+                thumbnail: "https://media.sketchfab.com/models/f766a86176354721a06a333f6903aad7/thumbnails/28cd7c1e20a347a794941652041fd803/51efbdb0d4d54d02a1f8554ad1728c6b.jpeg" }
+            ],
+            technologies: ["Blender","Substance Painter"],
+            projectLink: "#",
+            codeLink: "#",
+            codeLink2: "#",
+            category: "vr"
         },
         // ... other projects ...
     ];
@@ -101,43 +119,51 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle media
         const mainImg = document.getElementById('modalMainImg');
         const videoFrame = document.getElementById('modalVideo');
+         const sketchfabFrame = document.getElementById('modalSketchfab'); // Add this
         const thumbnailsContainer = document.getElementById('mediaThumbnails');
         
         // Clear previous media
         mainImg.style.display = 'none';
         videoFrame.style.display = 'none';
         thumbnailsContainer.innerHTML = '';
+         sketchfabFrame.style.display = 'none'; // Add this
         
-        // Load first media item if available
-        if (project.media?.length > 0) {
-            const firstMedia = project.media[0];
-            showMedia(firstMedia);
+          // Load first media item if available
+    if (project.media?.length > 0) {
+        const firstMedia = project.media[0];
+        showMedia(firstMedia);
+        
+        // Create thumbnails
+        project.media.forEach((media, index) => {
+            const thumb = document.createElement('img');
+            if (media.type === 'video') {
+                thumb.src = `https://img.youtube.com/vi/${media.url.split('/').pop()}/default.jpg`;
+            } else if (media.type === 'sketchfab') {
+                // For Sketchfab, you might want to use a placeholder image or the Sketchfab thumbnail
+                thumb.src = media.thumbnail || 'path/to/default-sketchfab-thumbnail.jpg';
+            } else {
+                thumb.src = media.url;
+            }
+            thumb.alt = `Thumbnail ${index + 1}`;
+            thumb.classList.add('media-thumb');
+            if (media.type === 'video' || media.type === 'sketchfab') {
+                thumb.classList.add('video-thumb');
+            }
+            thumb.dataset.index = index;
             
-            // Create thumbnails
-            project.media.forEach((media, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = media.type === 'video' 
-                    ? `https://img.youtube.com/vi/${media.url.split('/').pop()}/default.jpg`
-                    : media.url;
-                thumb.alt = `Thumbnail ${index + 1}`;
-                thumb.classList.add('media-thumb');
-                if (media.type === 'video') thumb.classList.add('video-thumb');
-                thumb.dataset.index = index;
-                
-                // Add touch events for mobile
-                thumb.addEventListener('click', () => {
-                    showMedia(media);
-                    document.querySelectorAll('.media-thumb').forEach(t => 
-                        t.classList.remove('active'));
-                    thumb.classList.add('active');
-                });
-                
-                thumbnailsContainer.appendChild(thumb);
+            thumb.addEventListener('click', () => {
+                showMedia(media);
+                document.querySelectorAll('.media-thumb').forEach(t => 
+                    t.classList.remove('active'));
+                thumb.classList.add('active');
             });
             
-            // Activate first thumbnail
-            thumbnailsContainer.firstChild?.classList.add('active');
-        }
+            thumbnailsContainer.appendChild(thumb);
+        });
+        
+        // Activate first thumbnail
+        thumbnailsContainer.firstChild?.classList.add('active');
+    }
         
         // Show modal
         modal.style.display = 'block';
@@ -170,16 +196,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function showMedia(media) {
         const mainImg = document.getElementById('modalMainImg');
         const videoFrame = document.getElementById('modalVideo');
+         const sketchfabFrame = document.getElementById('modalSketchfab'); // Add this
         
         if (media.type === 'image') {
             mainImg.src = media.url;
             mainImg.alt = media.url.split('/').pop().split('.')[0];
             mainImg.style.display = 'block';
             videoFrame.style.display = 'none';
+            sketchfabFrame.style.display = 'none';
         } else if (media.type === 'video') {
             videoFrame.src = media.url;
             mainImg.style.display = 'none';
             videoFrame.style.display = 'block';
+            sketchfabFrame.style.display = 'none';
+
+        } else if (media.type === 'sketchfab') {
+           sketchfabFrame.src = media.url;
+           mainImg.style.display = 'none';
+            videoFrame.style.display = 'none';
+           sketchfabFrame.style.display = 'block';
         }
     }
 

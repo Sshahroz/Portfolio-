@@ -36,23 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ["Unity", "C#", "Shader Graph"],
             projectLink: "#",
             codeLink: "#",
+            codeLink2: "#",
             category: "vr"
         },
           {
             id: 2,
-            title: "3D Loader",
-            subtitle: "VR Project",
-            description: "A 3D loading animation created for VR applications with smooth transitions and visual effects.",
+            title: "Terraced House",
+            subtitle: "3d floor Plan",
+            description: "This 3D floor plan is designed from the client’s provided 2D layout, converted into a realistic one-to-one scale model. The purpose is to help potential buyers or residents visualize the internal structure of the terraced house, making it easier for them to assess if the space meets their needs.",
             media: [
-                { type: "image", url: "images/FloorPlan/BasementLeft.png" },
-                { type: "image", url: "images/loader.png" },        
-                { type: "image", url: "images/loader.png" },
-                { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhSWXtrArr0D2RJ" }
+                { type: "image", url: "images/TerracedHouse/BasementLeft.png" },
+                { type: "image", url: "images/TerracedHouse/GroundLeft.png" }, 
+                   { type: "image", url: "images/TerracedHouse/1srtLeft.png" },          
+                { type: "image", url: "images/TerracedHouse/TopLeft.png" },
+               // { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhSWXtrArr0D2RJ" }
             ],
-            technologies: ["Unity", "C#", "Shader Graph"],
-            projectLink: "#",
-            codeLink: "#",
-            category: "vr"
+            technologies: ["Blender",],
+            codeLink2: "https://www.behance.net/gallery/161902367/3d-floor-plan",
+            category: "3d"
         },
         // ... other projects ...
     ];
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modalTitle').textContent = project.title;
         document.getElementById('modalSubtitle').textContent = project.subtitle;
         document.getElementById('modalDescription').textContent = project.description;
-        document.getElementById('modalLink').href = project.projectLink || "#";
+        //document.getElementById('modalLink').href = project.projectLink || "#";
         
         // Set code link if available
         const codeLink = document.getElementById('modalCodeLink');
@@ -77,6 +78,15 @@ document.addEventListener('DOMContentLoaded', function() {
             codeLink.style.display = 'inline-block';
         } else {
             codeLink.style.display = 'none';
+        }
+
+         // Set code link if available
+        const codeLink2 = document.getElementById('modalLink');
+        if (project.codeLink2) {
+            codeLink2.href = project.codeLink2;
+            codeLink2.style.display = 'inline-block';
+        } else {
+            codeLink2.style.display = 'none';
         }
         
         // Set technologies

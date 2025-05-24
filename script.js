@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subtitle: "VR Project",
             description: "A 3D loading animation created for VR applications with smooth transitions and visual effects.",
             media: [
-                { type: "image", url: "images/loader.png" },
+                { type: "image", url: "images/FloorPlan/BasementLeft.png" },
                 { type: "image", url: "images/loader.png" },        
                 { type: "image", url: "images/loader.png" },
                 { type: "video", url: "https://www.youtube.com/embed/zjCXtcusnGc?si=ChhSWXtrArr0D2RJ" }

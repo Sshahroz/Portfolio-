@@ -81,9 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 { type: "image", url: "images/3DModel/Build Apartment/10.png" },
                 { type: "image", url: "images/3DModel/Build Apartment/11.png" },
                 { type: "image", url: "images/3DModel/Build Apartment/12.png" },
-                { type: "image", url: "images/3DModel/  Build Apartment/13.png" },
+                { type: "image", url: "images/3DModel/Build Apartment/13.png" },
                 
-            
             ],
             technologies: ["Blender"],
             category: "3d"

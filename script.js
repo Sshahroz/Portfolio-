@@ -125,19 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         {
             id: 7,
-            title: "Indian buses",
-            subtitle: "Explore iconic Indian buses in a lightweight, mobile-optimized 3D world!",
-            description: "Step into a hyper-realistic 3D simulation of iconic Indian buses, meticulously designed for mobile gaming! This lightweight, highly optimized experience lets you explore detailed bus interiors and vibrant streets with smooth performance on any device. Enjoy authentic textures, interactive elements, and dynamic environments that bring the chaos and charm of Indian travel to life—without lag or high-end hardware demands.",
+            title: "Step-by-Step Guide to Installing Stair Flooring Nosing",
+            subtitle: "Learn How to Fit Laminates, Engineered Wood, and Vinyl Nosing for a Perfect Finish",
+            description: "In this detailed 3D animation video, we walk you through the step-by-step process of installing stair flooring nosing for different materials, including laminate, engineered wood, and vinyl. Whether you're a DIY enthusiast or a professional, this tutorial will help you achieve a seamless and secure fit for your stair flooring.",
             media: [
-                { type: "image", url: "images/3DModel/Indian buses/1.png" },
-                { type: "image", url: "images/3DModel/Indian buses/2.png" },
-                { type: "image", url: "images/3DModel/Indian buses/3.png" },
-                { type: "image", url: "images/3DModel/Indian buses/4.png" },
 
-                
-            
+               { type: "video", url: "https://www.youtube.com/embed/JGBUg9D3fsE?si=W8ZxeLVqvgvB9bND" },
+                 { type: "image", url: "images/VideoAnimation/StairsFlooringTypes/Thumbnail.png" },
             ],
-            technologies: ["Blender","Substance Painter "],
+            technologies: ["Blender"],
             category: "3d"
         },
         // ... other projects ...

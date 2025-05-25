@@ -122,6 +122,24 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ["Blender","Twinmotion"],
             category: "3d"
         },
+
+        {
+            id: 7,
+            title: "Indian buses",
+            subtitle: "Explore iconic Indian buses in a lightweight, mobile-optimized 3D world!",
+            description: "Step into a hyper-realistic 3D simulation of iconic Indian buses, meticulously designed for mobile gaming! This lightweight, highly optimized experience lets you explore detailed bus interiors and vibrant streets with smooth performance on any device. Enjoy authentic textures, interactive elements, and dynamic environments that bring the chaos and charm of Indian travel to life—without lag or high-end hardware demands.",
+            media: [
+                { type: "image", url: "images/3DModel/Indian buses/1.png" },
+                { type: "image", url: "images/3DModel/Indian buses/2.png" },
+                { type: "image", url: "images/3DModel/Indian buses/3.png" },
+                { type: "image", url: "images/3DModel/Indian buses/4.png" },
+
+                
+            
+            ],
+            technologies: ["Blender","Substance Painter "],
+            category: "3d"
+        },
         // ... other projects ...
     ];
 

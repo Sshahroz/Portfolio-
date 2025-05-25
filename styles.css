@@ -398,11 +398,11 @@ footer {
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
+    margin-top: 10;
     padding: 30px;
     border-radius: 8px;
     width: 80%;
     max-width: 90%;
-    max-height: 80%;
     position: relative;
     animation: modalopen 0.5s;
 }

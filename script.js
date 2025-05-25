@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             
             ],
-            technologies: ["Blender","Twinmotion"],
-            category: "3d"
+            technologies: ["Blender","Unity"],
+            category: "Video"
         },
 
         {
@@ -148,6 +148,33 @@ document.addEventListener('DOMContentLoaded', function() {
                  { type: "image", url: "images/VideoAnimation/StairsFlooringTypes/Thumbnail.png" },
             ],
             technologies: ["Blender"],
+            category: "Video"
+        },
+          {
+            id: 9,
+            title: "Effortless Bottle Filling: Attaching a Water Fountain Bottle Filler",
+            subtitle: "Solve Your Bottle-Filling Problems with This Simple Upgrade!",
+            description: "In this 3D animation video, we demonstrate how to easily attach a bottle filler attachment to a standard drinking water fountain, transforming it into a convenient bottle-filling station. Perfect for schools, gyms, offices, and public spaces, this upgrade ensures quick, spill-free refills while promoting sustainability by encouraging reusable bottles.",
+            media: [
+
+               { type: "video", url: "https://www.youtube.com/embed/xIVLxG8y0OA?si=fBoUvpsBSkPxfaGc" },
+                { type: "image", url: "images/VideoAnimation/WaterFountainBottleFiller/1.png" },
+                { type: "image", url: "images/VideoAnimation/WaterFountainBottleFiller/2.png" },
+                { type: "image", url: "images/VideoAnimation/WaterFountainBottleFiller/3.png" },
+            ],
+            technologies: ["Blender"],
+            category: "Video"
+        },
+        {
+            id: 10,
+            title: "Wheel Loader Komatsu WA1200",
+            subtitle: "3d model",
+            description: "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
+            media: [
+                {type: "sketchfab",  url: "https://sketchfab.com/models/0f150a4850e94a7c89b3aa048170b2ec/embed",
+                thumbnail: "images/3DModel/ExtendableBarrier/thumbnailSkechfab.png" }
+            ],
+            technologies: ["Blender","Substance Painter"],
             category: "3d"
         },
         // ... other projects ...

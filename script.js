@@ -177,6 +177,32 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ["Blender","Substance Painter"],
             category: "3d"
         },
+        {
+            id: 11,
+            title: "High Speed Neon Car Driving",
+            subtitle: "3d Retro Neon. Modern Speed",
+            description: "An endless neon racing adventure designed & developed in Unity 3D! Take control of a blazing merger car, dodge obstacles, and perform insane stunts at breakneck speed. Drift through chaotic lanes, outmaneuver rivals, and prove you’re the ultimate racing champion. With smooth Unity-powered physics and eye-popping neon visuals, this game delivers non-stop adrenaline. Hit the gas now! Designed & Developed in Unity 3D upfront to emphasize your work.Short but punchy—focuses on speed, neon aesthetics, and Unity’s role .Ends with a call-to-action.",
+            media: [
+                { type: "image", url: "images/Games/High Speed Neon Car Driving/0.png" },
+                { type: "image", url: "images/Games/High Speed Neon Car Driving/1.png" },
+                { type: "image", url: "images/Games/High Speed Neon Car Driving/2.png" },
+            ],
+            technologies: ["Unity","Blender"],
+            category: "Games"
+        },
+         {
+            id: 12,
+            title: "Flick Soccer",
+            subtitle: "Free Soccer Game for Real Football Champions, Kick & Strike in Fun Soccer Game",
+            description: "Swipe to shoot stunning goals in this addictive football game! Master curve shots, earn rewards, and compete in global tournaments. Enjoy realistic physics, brilliant 3D graphics, and simple one-touch controls.",
+            media: [
+                { type: "image", url: "images/Games/Flick Soccer/0.png" },
+                { type: "image", url: "images/Games/Flick Soccer/1.png" },
+                { type: "image", url: "images/Games/Flick Soccer/2.png" },
+            ],
+            technologies: ["Unity","Blender"],
+            category: "Games"
+        },
         // ... other projects ...
     ];
 

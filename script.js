@@ -203,6 +203,38 @@ document.addEventListener('DOMContentLoaded', function() {
             technologies: ["Unity","Blender"],
             category: "Games"
         },
+         {
+            id: 13,
+            title: "Elegant Perfume Animation",
+            subtitle: "From Modeling to Render – A 3D Art Experiment",
+            description: "For fun and learning, I created a sleek 3D animation of a luxury perfume bottle using Blender. The animation highlights the product's elegant design, realistic glass material, and liquid effects—all rendered in Cycles for stunning lighting and reflections.",
+            media: [
+                 { type: "video", url: "https://www.youtube.com/embed/uA2WvE2JMJY?si=ufnlKBXqhCxXUKLu" },
+            ],
+            technologies: ["Blender"],
+            category: "Video"
+        },
+         {
+            id: 14,
+            title: "Immersive VR Venue Tour",
+            subtitle: "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+            description: "Step inside a fully immersive 3D Venue tour designed for Oculus VR! This experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+            media: [
+                 { type: "video", url: "https://www.youtube.com/embed/fdFfqkAtBIs?si=u6ze1l7CnCYWqQyx" },
+            ],
+            technologies: ["Unity","Blender"],
+            category: "Video"
+        }, {
+            id: 15,
+            title: "Immersive VR Real Estate Tour",
+            subtitle: "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+            description: "Step inside a fully immersive 3D Venue tour designed for Oculus VR! This experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+            media: [
+                 { type: "video", url: "https://www.youtube.com/embed/nrxQ4Vf2MFM?si=tKaxVwg0Mf170WL7" },
+            ],
+            technologies: ["Blender"],
+            category: "Video"
+        },
         // ... other projects ...
     ];
 

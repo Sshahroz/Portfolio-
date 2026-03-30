@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahroz Ahmed - VR ,Game Developer & 3D Artis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Make sure this is in your HTML head -->
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script> 
     <script src="script.js" defer></script>
 </head>
+
 <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -34,15 +39,59 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <h1>Shahroz Ahmed</h1>
-            <p>VR ,Game Developer & 3D Artist</p>
-            <p>Highly skilled and  expertise in Unity development, VR, 3D graphic design, and animation. Passionate about cutting-edge technology, bringing ideas to life through immersive experiences, high-quality 3D models, and engaging interactive applications.</p>
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-container">
+            <div class="hero-badge">
+                <i class="fas fa-vr-cardboard"></i>
+                VR &amp; 3D Specialist
+            </div>
+            <h1>Shahroz <span class="name-accent">Ahmed</span></h1>
+            <div class="hero-role">
+                <span>Specializing in </span><span id="typed-text" class="typed-text"></span><span class="typed-cursor">|</span>
+            </div>
+            <p class="hero-description">Turning imagination into reality — from photorealistic 3D models and real-time environments to fully immersive VR simulations built in Unity.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Hire Me</a>
+            </div>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/shahroz-ahmed1995/"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.linkedin.com/in/shahroz-ahmed1995/"><i class="fab fa-behance"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number-wrap"><span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span></div>
+                    <span class="stat-label">Projects Done</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrap"><span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span></div>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrap"><span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span></div>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+            </div>
+            <div class="tech-strip">
+                <span class="tech-strip-label">Tools & Engines</span>
+                <div class="tech-pills">
+                    <span class="tech-pill"><i class="fas fa-cube"></i> Unity 3D</span>
+                    <span class="tech-pill"><i class="fas fa-shapes"></i> Blender</span>
+                    <span class="tech-pill"><i class="fas fa-fire"></i> Unreal Engine</span>
+                    <span class="tech-pill"><i class="fas fa-drafting-compass"></i> Maya</span>
+                    <span class="tech-pill"><i class="fas fa-paint-roller"></i> Substance Painter</span>
+                    <span class="tech-pill"><i class="fas fa-vr-cardboard"></i> Meta Quest</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll</span>
         </div>
     </section>
 
@@ -52,9 +101,17 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Great experience in Unity development, VR development, 3D graphic design, and animation, highly skilled and versatile professional in the field of digital media. With a passion for cutting-edge technology and a talent for bringing ideas to life, has built a strong reputation as an innovator and problem-solver.</p>
-                    <p>As a Unity developer, worked on a variety of projects, ranging from mobile games and interactive experiences to virtual and augmented reality applications. With expertise in C# programming, UI design, and game mechanics, ability to create immersive and engaging experiences that keep users coming back for more.</p>
-                    <p>In addition to my development work, I am also a skilled 3D graphic designer and animator. I have created high-quality 3D models and animations for a wide range of applications, from product demos and marketing materials to explainer videos and interactive presentations.</p>
+                    <p>Great experience in Unity development, VR development, 3D graphic design, and animation, highly
+                        skilled and versatile professional in the field of digital media. With a passion for
+                        cutting-edge technology and a talent for bringing ideas to life, has built a strong reputation
+                        as an innovator and problem-solver.</p>
+                    <p>As a Unity developer, worked on a variety of projects, ranging from mobile games and interactive
+                        experiences to virtual and augmented reality applications. With expertise in C# programming, UI
+                        design, and game mechanics, ability to create immersive and engaging experiences that keep users
+                        coming back for more.</p>
+                    <p>In addition to my development work, I am also a skilled 3D graphic designer and animator. I have
+                        created high-quality 3D models and animations for a wide range of applications, from product
+                        demos and marketing materials to explainer videos and interactive presentations.</p>
                     <a href="Shahroz-Resume.pdf" class="btn">Download CV</a>
                 </div>
                 <div class="about-image">
@@ -74,270 +131,122 @@
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3>Game Development </h3>
-                    <p>Crafting immersive gaming experiences with innovative mechanics, high-quality execution, and scalable solutions.</p>
+                    <p>Crafting immersive gaming experiences with innovative mechanics, high-quality execution, and
+                        scalable solutions.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-video"></i>
                     </div>
                     <h3>Animation Video</h3>
-                    <p>Producing dynamic motion graphics and interactive narratives powered by intelligent personalization systems.</p>
+                    <p>Producing dynamic motion graphics and interactive narratives powered by intelligent
+                        personalization systems.</p>
                 </div>
-                  <div class="service-card">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa fa-map"></i>
                     </div>
                     <h3>Environment Design</h3>
-                    <p>Designing responsive digital spaces where motion and adaptive knowledge systems create fluid, user-driven experiences.</p>
+                    <p>Designing responsive digital spaces where motion and adaptive knowledge systems create fluid,
+                        user-driven experiences.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>UI Design</h3>
-                    <p>Designing intuitive, user-centric interfaces that enhance usability and integrate adaptive learning for seamless interaction.</p>
+                    <p>Designing intuitive, user-centric interfaces that enhance usability and integrate adaptive
+                        learning for seamless interaction.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cube"></i>
                     </div>
                     <h3>Cutting Edge 3D</h3>
-                    <p>Building visually stunning, interactive 3D environments that elevate project visualization and user engagement.</p>
+                    <p>Building visually stunning, interactive 3D environments that elevate project visualization and
+                        user engagement.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cube"></i>
                     </div>
                     <h3>VR Development</h3>
-                    <p>Developing immersive virtual reality environments that blend innovation with practicality for transformative project exploration.</p>
+                    <p>Developing immersive virtual reality environments that blend innovation with practicality for
+                        transformative project exploration.</p>
                 </div>
             </div>
         </div>
     </section>
 
-            <!-- Projects Section -->
-            <section class="projects" id="projects">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <p style="text-align: center; margin-bottom: 40px;">Some of my work</p>
-                
-                <!-- Project Filter Buttons -->
-                <div class="project-filters">
-                    <button class="filter-btn" data-filter="vr">VR Projects</button>
-                    <button class="filter-btn" data-filter="3d">3D Models</button>
-                    <button class="filter-btn" data-filter="game">Game Development</button>
-                    <button class="filter-btn" data-filter="Video">Animation Video</button>
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Some of my work</p>
 
-                </div>
-                
-                <!-- Projects Grid -->
-                <div class="projects-grid">
-                    <!-- VR Project -->
-                    <div class="project-card" data-project-id="6" data-category="vr">
-                        <div class="project-image">
-                            <img src="images/VRProject/VRHouseTour/Thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Immersive VR House Tour</h3>
-                            <p>A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality</p>
-                        </div>
-                    </div>
+            <!-- Project Filter Buttons -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="vr">VR Projects</button>
+                <button class="filter-btn" data-filter="3d">3D Models</button>
+                <button class="filter-btn" data-filter="game">Game Development</button>
+                <button class="filter-btn" data-filter="Video">Animation Video</button>
+                <button class="filter-btn" data-filter="all">All Projects</button>
 
-                        <div class="project-card" data-project-id="14" data-category="vr">
-                        <div class="project-image">
-                            <img src="images/VRProject/VRVenueTour/Thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Immersive VR Venue Tour</h3>
-                            <p>A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality</p>
-                        </div>
-                    </div>
-
-                        <div class="project-card" data-project-id="15" data-category="vr">
-                        <div class="project-image">
-                            <img src="images/VRProject/VRRealState/Thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Immersive VR Real Estate Tour</h3>
-                            <p>A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality</p>
-                        </div>
-                    </div>
-
-
-                    
-
-                    
-                    <!-- 3D Model Project -->
-                    <div class="project-card" data-project-id="2" data-category="3d">
-                        <div class="project-image">
-                            <img src="images/3DModel/TerracedHouse/thumbnail.png" alt="3D Model">
-                        </div>
-                        <div class="project-info">
-                            <h3>Terraced House</h3>
-                            <p>High-detail 3D 3d floor Plan</p>
-                        </div>
-                    </div>
-
-                       <div class="project-card" data-project-id="1" data-category="3d">
-                        <div class="project-image">
-                            <img src="images/3DModel/WheelLoaderKomatsuWA1200/loader.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Wheel Loader Komatsu WA1200</h3>
-                            <p>3D Model</p>
-                        </div>
-                    </div>
-
-                       <div class="project-card" data-project-id="4" data-category="3d">
-                        <div class="project-image">
-                            <img src="images/3DModel/Build Apartment/thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Build Apartment</h3>
-                            <p>3D Floor Plan</p>
-                        </div>
-                    </div>
-
-                     <div class="project-card" data-project-id="7" data-category="3d">
-                        <div class="project-image">
-                            <img src="images/3DModel/Indian buses/Thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Indian buses</h3>
-                            <p>Explore iconic Indian buses in a lightweight, mobile-optimized 3D world!</p>
-                        </div>
-                    </div>
-
-                      <div class="project-card" data-project-id="10" data-category="3d">
-                        <div class="project-image">
-                            <img src="images/3DModel/ExtendableBarrier/thumbnail.png" alt="VR Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Extendable Barrier – 3D Model Showcase</h3>
-                            <p>Innovative, Adjustable & Ultra-Realistic for Safety & Simulation!</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Game Development Project -->
-                    <div class="project-card" data-project-id="11" data-category="game">
-                        <div class="project-image">
-                            <img src="images/Games/High Speed Neon Car Driving/Thumbnail.png" alt="Game Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>High Speed Neon Car Driving</h3>
-                            <p>Retro Neon Modern Speed</p>
-                        </div>
-                    </div>
-                     <div class="project-card" data-project-id="12" data-category="game">
-                        <div class="project-image">
-                            <img src="images/Games/Flick Soccer/Thumbnail.png" alt="Game Project">
-                        </div>
-                        <div class="project-info">
-                            <h3>Flick Soccer</h3>
-                            <p>Free Soccer Game for Real Football Champions, Kick & Strike in Fun Soccer Game</p>
-                        </div>
-                    </div>
-                
- 
-                    <!-- Animation Video -->
-
-                    <div class="project-card" data-project-id="5" data-category="Video">
-                        <div class="project-image">
-                            <img src="images/VideoAnimation/Familyhouse/Thumbnail.jpg" alt="Family House">
-                        </div>
-                        <div class="project-info">
-                            <h3>Family house 3D animation</h3>
-                            <p>Modern high tech 1700 Square Foot House</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-project-id="8" data-category="Video">
-                        <div class="project-image">
-                            <img src="images/VideoAnimation/StairsFlooringTypes/Thumbnail.png" alt="Family House">
-                        </div>
-                        <div class="project-info">
-                            <h3>Step-by-Step Guide to Installing Stair Flooring Nosing</h3>
-                            <p>Learn How to Fit Laminates, Engineered Wood, and Vinyl Nosing for a Perfect Finish</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-project-id="9" data-category="Video">
-                        <div class="project-image">
-                            <img src="images/VideoAnimation/WaterFountainBottleFiller/Thumbnail.png" alt="Family House">
-                        </div>
-                        <div class="project-info">
-                            <h3>Effortless Bottle Filling: Attaching a Water Fountain Bottle Filler</h3>
-                            <p>Solve Your Bottle-Filling Problems with This Simple Upgrade!</p>
-                        </div>
-                    </div>
-
-                       <div class="project-card" data-project-id="13" data-category="Video">
-                        <div class="project-image">
-                            <img src="images/VideoAnimation/PerfumeAdd/Thumbnail.png" alt="Family House">
-                        </div>
-                        <div class="project-info">
-                            <h3>Elegant Perfume Animation </h3>
-                            <p>From Modeling to Render – A 3D Art Experiment</p>
-                        </div>
-                    </div>
-
-
-
-
-
-                    
-                    <!-- Add more projects with appropriate data-category attributes -->
-                </div>
             </div>
-        </section>
 
-        <div id="projectModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="modal-body">
-            <!-- Media Gallery -->
-            <div class="modal-gallery">
-                <div class="main-media">
-                    <img id="modalMainImg" src="" alt="Project Image" class="active">
-                    <iframe id="modalVideo" class="youtube-embed" frameborder="0" allowfullscreen></iframe>
-
-                      <!-- Add this for Sketchfab -->
-                    <iframe id="modalSketchfab" class="sketchfab-embed" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="media-thumbnails" id="mediaThumbnails">
-                    <!-- Thumbnails will be added here by JavaScript -->
-                </div>
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Projects will be loaded dynamically from data/projects.json here -->
             </div>
-            
-            <!-- Project Info -->
-            <div class="modal-text">
-                <div class="modal-header">
-                    <h2 id="modalTitle"></h2>
-                    <h3 id="modalSubtitle"></h3>
-                </div>
-                <div class="modal-description">
-                    <p id="modalDescription"></p>
-                </div>
-                <div class="modal-tech">
-                    <h4>Technologies Used:</h4>
-                    <ul id="modalTechList"></ul>
-                </div>
-                <div class="modal-links">
-                    
-                    <a href="" class="btn secondary" id="modalCodeLink" style="display: none;">
-                        <i class="fab fa-github"></i> View Code   
-                    </a>
-                    
-                      <a href="" class="btn secondary" id="modalLink" style="display: none;">
-                        <i class="fab fa-behance"></i>
-                    </a>
+        </div>
+    </section>
 
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <!-- Media Gallery -->
+                <div class="modal-gallery">
+                    <div class="main-media">
+                        <img id="modalMainImg" src="" alt="Project Image" class="active">
+                        <iframe id="modalVideo" class="youtube-embed" frameborder="0" allowfullscreen></iframe>
+
+                        <!-- Add this for Sketchfab -->
+                        <iframe id="modalSketchfab" class="sketchfab-embed" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-thumbnails" id="mediaThumbnails">
+                        <!-- Thumbnails will be added here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Project Info -->
+                <div class="modal-text">
+                    <div class="modal-header">
+                        <h2 id="modalTitle"></h2>
+                        <h3 id="modalSubtitle"></h3>
+                    </div>
+                    <div class="modal-description">
+                        <p id="modalDescription"></p>
+                    </div>
+                    <div class="modal-tech">
+                        <h4>Technologies Used:</h4>
+                        <ul id="modalTechList"></ul>
+                    </div>
+                    <div class="modal-links">
+
+                        <a href="" class="btn secondary" id="modalCodeLink" style="display: none;">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+
+                        <a href="" class="btn secondary" id="modalLink" style="display: none;">
+                            <i class="fab fa-behance"></i>
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -387,4 +296,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

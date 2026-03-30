@@ -1,0 +1,343 @@
+[
+    {
+        "id": 1,
+        "title": "Wheel Loader Komatsu WA1200",
+        "subtitle": "3d model",
+        "description": "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
+        "category": "3d",
+        "technologies": [
+            "Blender",
+            "Substance Painter"
+        ],
+        "media": [
+            {
+                "type": "sketchfab",
+                "url": "https:\/\/sketchfab.com\/models\/f766a86176354721a06a333f6903aad7\/embed",
+                "thumbnail": "images\/3DModel\/WheelLoaderKomatsuWA1200\/thumbnailSkechfab.png"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Terraced House",
+        "subtitle": "3d floor Plan",
+        "description": "This 3D floor plan is designed from the client\u2019s provided 2D layout, converted into a realistic one-to-one scale model. The purpose is to help potential buyers or residents visualize the internal structure of the terraced house, making it easier for them to assess if the space meets their needs.",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/3DModel\/TerracedHouse\/BasementLeft.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/TerracedHouse\/GroundLeft.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/TerracedHouse\/1srtLeft.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/TerracedHouse\/TopLeft.png"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "codeLink2": "https:\/\/www.behance.net\/gallery\/161902367\/3d-floor-plan",
+        "category": "3d"
+    },
+    {
+        "id": 3,
+        "title": "Wheel Loader Komatsu WA1200",
+        "subtitle": "3d model",
+        "description": "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
+        "category": "vr",
+        "technologies": [
+            "Blender",
+            "Substance Painter"
+        ],
+        "media": [
+            {
+                "type": "image",
+                "url": "https:\/\/mir-s3-cdn-cf.behance.net\/projects\/max_808\/ae0919164750399.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
+                "thumbnail": ""
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Build Apartment",
+        "subtitle": "3d Floor plan",
+        "description": "builder provides a 2D floor plan for an apartment, I convert it into a realistic 3D model which helps buyers and investors visualize the final space before construction is complete.",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Build Apartment\/10.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Build Apartment\/11.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Build Apartment\/12.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Build Apartment\/13.png"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "category": "3d"
+    },
+    {
+        "id": 5,
+        "title": "Family house 3D animation",
+        "subtitle": "Modern high tech 1700 Square Foot House",
+        "description": "In this project, I transformed a 1,700 sq. ft. house floor plan into a realistic 3D model to showcase the final living space before construction. Using advanced design tools, I created detailed visualizations of the interior and exterior, including: Accurate room layouts (bedrooms, kitchen, living areas). Modern interior styling (furniture, lighting, textures). Realistic materials & finishes (flooring, wall colors, cabinetry). Interactive walkthroughs for a virtual tour experience",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/Familyhouse\/1.jpg"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/Familyhouse\/2.jpg"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/Familyhouse\/3.jpg"
+            },
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/DRhrJCblzKs?si=ZLK8y655suLtI3Wu"
+            }
+        ],
+        "technologies": [
+            "Blender",
+            "Twinmotion"
+        ],
+        "category": "3d"
+    },
+    {
+        "id": 6,
+        "title": "Immersive VR House Tour",
+        "subtitle": "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+        "description": "Step inside a fully immersive 3D house tour designed for Oculus VR! This Unity-built experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/45NTGu7zKZ8?si=M1psvM9M9EmVkujU"
+            },
+            {
+                "type": "image",
+                "url": "images\/VRProject\/VRHouseTour\/1.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/VRProject\/VRHouseTour\/2.png"
+            }
+        ],
+        "technologies": [
+            "Blender",
+            "Unity"
+        ],
+        "category": "Video"
+    },
+    {
+        "id": 7,
+        "title": "Indian buses",
+        "subtitle": "Explore iconic Indian buses in a lightweight, mobile-optimized 3D world!",
+        "description": "Step into a hyper-realistic 3D simulation of iconic Indian buses, meticulously designed for mobile gaming! This lightweight, highly optimized experience lets you explore detailed bus interiors and vibrant streets with smooth performance on any device. Enjoy authentic textures, interactive elements, and dynamic environments that bring the chaos and charm of Indian travel to life\u2014without lag or high-end hardware demands.",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Indian buses\/1.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Indian buses\/2.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Indian buses\/3.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/3DModel\/Indian buses\/4.png"
+            }
+        ],
+        "technologies": [
+            "Blender",
+            "Substance Painter "
+        ],
+        "category": "3d"
+    },
+    {
+        "id": 8,
+        "title": "Step-by-Step Guide to Installing Stair Flooring Nosing",
+        "subtitle": "Learn How to Fit Laminates, Engineered Wood, and Vinyl Nosing for a Perfect Finish",
+        "description": "In this detailed 3D animation video, we walk you through the step-by-step process of installing stair flooring nosing for different materials, including laminate, engineered wood, and vinyl. Whether you're a DIY enthusiast or a professional, this tutorial will help you achieve a seamless and secure fit for your stair flooring.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/JGBUg9D3fsE?si=W8ZxeLVqvgvB9bND"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/StairsFlooringTypes\/Thumbnail.png"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "category": "Video"
+    },
+    {
+        "id": 9,
+        "title": "Effortless Bottle Filling: Attaching a Water Fountain Bottle Filler",
+        "subtitle": "Solve Your Bottle-Filling Problems with This Simple Upgrade!",
+        "description": "In this 3D animation video, we demonstrate how to easily attach a bottle filler attachment to a standard drinking water fountain, transforming it into a convenient bottle-filling station. Perfect for schools, gyms, offices, and public spaces, this upgrade ensures quick, spill-free refills while promoting sustainability by encouraging reusable bottles.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/xIVLxG8y0OA?si=fBoUvpsBSkPxfaGc"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/WaterFountainBottleFiller\/1.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/WaterFountainBottleFiller\/2.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/VideoAnimation\/WaterFountainBottleFiller\/3.png"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "category": "Video"
+    },
+    {
+        "id": 10,
+        "title": "Extendable Barrier \u2013 3D Model Showcase",
+        "subtitle": "3d model",
+        "description": "This 3D low-poly model is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
+        "media": [
+            {
+                "type": "sketchfab",
+                "url": "https:\/\/sketchfab.com\/models\/0f150a4850e94a7c89b3aa048170b2ec\/embed",
+                "thumbnail": "images\/3DModel\/ExtendableBarrier\/thumbnailSkechfab.png"
+            }
+        ],
+        "technologies": [
+            "Blender",
+            "Substance Painter"
+        ],
+        "category": "3d"
+    },
+    {
+        "id": 11,
+        "title": "High Speed Neon Car Driving",
+        "subtitle": "3d Retro Neon. Modern Speed",
+        "description": "An endless neon racing adventure designed & developed in Unity 3D! Take control of a blazing merger car, dodge obstacles, and perform insane stunts at breakneck speed. Drift through chaotic lanes, outmaneuver rivals, and prove you\u2019re the ultimate racing champion. With smooth Unity-powered physics and eye-popping neon visuals, this game delivers non-stop adrenaline. Hit the gas now! Designed & Developed in Unity 3D upfront to emphasize your work.Short but punchy\u2014focuses on speed, neon aesthetics, and Unity\u2019s role .Ends with a call-to-action.",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/Games\/High Speed Neon Car Driving\/0.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/Games\/High Speed Neon Car Driving\/1.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/Games\/High Speed Neon Car Driving\/2.png"
+            }
+        ],
+        "technologies": [
+            "Unity",
+            "Blender"
+        ],
+        "category": "game"
+    },
+    {
+        "id": 12,
+        "title": "Flick Soccer",
+        "subtitle": "Free Soccer Game for Real Football Champions, Kick & Strike in Fun Soccer Game",
+        "description": "Swipe to shoot stunning goals in this addictive football game! Master curve shots, earn rewards, and compete in global tournaments. Enjoy realistic physics, brilliant 3D graphics, and simple one-touch controls.",
+        "media": [
+            {
+                "type": "image",
+                "url": "images\/Games\/Flick Soccer\/0.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/Games\/Flick Soccer\/1.png"
+            },
+            {
+                "type": "image",
+                "url": "images\/Games\/Flick Soccer\/2.png"
+            }
+        ],
+        "technologies": [
+            "Unity",
+            "Blender"
+        ],
+        "category": "game"
+    },
+    {
+        "id": 13,
+        "title": "Elegant Perfume Animation",
+        "subtitle": "From Modeling to Render \u2013 A 3D Art Experiment",
+        "description": "For fun and learning, I created a sleek 3D animation of a luxury perfume bottle using Blender. The animation highlights the product's elegant design, realistic glass material, and liquid effects\u2014all rendered in Cycles for stunning lighting and reflections.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/uA2WvE2JMJY?si=ufnlKBXqhCxXUKLu"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "category": "Video"
+    },
+    {
+        "id": 14,
+        "title": "Immersive VR Venue Tour",
+        "subtitle": "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+        "description": "Step inside a fully immersive 3D Venue tour designed for Oculus VR! This experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/fdFfqkAtBIs?si=u6ze1l7CnCYWqQyx"
+            }
+        ],
+        "technologies": [
+            "Unity",
+            "Blender"
+        ],
+        "category": "vr"
+    },
+    {
+        "id": 15,
+        "title": "Immersive VR Real Estate Tour",
+        "subtitle": "A Photorealistic 3D Interior Walkthrough Built in Unity for Virtual Reality",
+        "description": "Step inside a fully immersive 3D Venue tour designed for Oculus VR! This experience lets you explore a photorealistic home in virtual reality, with natural movement, interactive objects, and dynamic lighting for maximum realism.",
+        "media": [
+            {
+                "type": "video",
+                "url": "https:\/\/www.youtube.com\/embed\/nrxQ4Vf2MFM?si=tKaxVwg0Mf170WL7"
+            }
+        ],
+        "technologies": [
+            "Blender"
+        ],
+        "category": "vr"
+    }
+]

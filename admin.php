@@ -117,6 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             'description' => stripslashes($_POST['description']),
             'category' => stripslashes($_POST['category']),
             'technologies' => array_filter(array_map('trim', explode(',', $_POST['technologies']))),
+            'codeLink' => trim($_POST['codeLink'] ?? ''),
+            'codeLink2' => trim($_POST['codeLink2'] ?? ''),
             'media' => $mediaArray
         ];
 
@@ -261,6 +263,10 @@ $projects = getProjects();
                                 <option value="Video">Animation Video</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>GitHub Link (Optional)</label>
+                            <input type="text" name="codeLink" id="pCodeLink" placeholder="https://github.com/...">
+                        </div>
                     </div>
                     <div style="flex: 1;">
                         <div class="form-group">
@@ -270,6 +276,10 @@ $projects = getProjects();
                         <div class="form-group">
                             <label>Technologies (comma separated)</label>
                             <input type="text" name="technologies" id="pTech" placeholder="e.g. Unity, Blender, C#">
+                        </div>
+                        <div class="form-group">
+                            <label>Behance Link (Optional)</label>
+                            <input type="text" name="codeLink2" id="pCodeLink2" placeholder="https://behance.net/...">
                         </div>
                     </div>
                 </div>
@@ -399,6 +409,8 @@ $projects = getProjects();
             document.getElementById('pCategory').value = 'vr';
             document.getElementById('pDesc').value = '';
             document.getElementById('pTech').value = '';
+            document.getElementById('pCodeLink').value = '';
+            document.getElementById('pCodeLink2').value = '';
             
             document.getElementById('media-container').innerHTML = '';
             addMediaRow(); // Add an empty row to start
@@ -413,6 +425,8 @@ $projects = getProjects();
             document.getElementById('pCategory').value = p.category || 'vr';
             document.getElementById('pDesc').value = p.description || '';
             document.getElementById('pTech').value = (p.technologies || []).join(', ');
+            document.getElementById('pCodeLink').value = p.codeLink || '';
+            document.getElementById('pCodeLink2').value = p.codeLink2 || '';
             
             // Populate media rows
             document.getElementById('media-container').innerHTML = ''; // clear initial empty row

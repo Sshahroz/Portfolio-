@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.size = Math.random() * 1.8 + 0.3;
                 this.speedX = (Math.random() - 0.5) * 0.4;
                 this.speedY = (Math.random() - 0.5) * 0.4;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.color = Math.random() > 0.6 ? '#c77dff' : '#ffffff';
+                this.opacity = Math.random() * 0.45 + 0.08;
+                const r = Math.random();
+                this.color = r > 0.7 ? '#F4792B' : r > 0.4 ? '#E91E8C' : '#ffffff';
             }
             update() {
                 this.x += this.speedX;
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const xSpan = canvas.width * 0.5 + canvas.width * 0.5 * perspective;
                 const alpha = perspective * 0.22;
                 ctx.globalAlpha = alpha;
-                ctx.strokeStyle = '#7b2cbf';
+                ctx.strokeStyle = '#F4792B';
                 ctx.lineWidth = 0.6;
                 ctx.beginPath();
                 ctx.moveTo(vp.x - xSpan / 2, y);
@@ -70,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const t = c / cols;
                 const xFar = vp.x - canvas.width * 0.5 + canvas.width * t;
                 const nearSpread = (xFar - vp.x) * 1.0;
-                ctx.globalAlpha = 0.10;
-                ctx.strokeStyle = '#9d4edd';
+                ctx.globalAlpha = 0.08;
+                ctx.strokeStyle = '#E91E8C';
                 ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(vp.x + (xFar - vp.x) * 0.01, vp.y);
@@ -93,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 90) {
                         ctx.save();
-                        ctx.globalAlpha = (1 - dist / 90) * 0.10;
-                        ctx.strokeStyle = '#7b2cbf';
+                        ctx.globalAlpha = (1 - dist / 90) * 0.08;
+                        ctx.strokeStyle = '#F4792B';
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);

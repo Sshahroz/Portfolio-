@@ -9,6 +9,9 @@
             "Blender",
             "Substance Painter"
         ],
+        "codeLink": "",
+        "codeLink2": "",
+        "thumbnail": "images\/uploads\/thumb_1779960007_loader.png",
         "media": [
             {
                 "type": "sketchfab",
@@ -47,24 +50,6 @@
             {
                 "type": "image",
                 "url": "images\/3DModel\/TerracedHouse\/TopLeft.png",
-                "thumbnail": ""
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "title": "Wheel Loader Komatsu WA1200",
-        "subtitle": "3d model",
-        "description": "This 3D low-poly model of the Komatsu WA1200 wheel loader is a simplified yet recognizable representation of the heavy-duty construction vehicle. Designed with efficiency and minimalism in mind, this model is perfect for applications such as real-time simulations, games, and visualizations where performance is key.",
-        "category": "vr",
-        "technologies": [
-            "Blender",
-            "Substance Painter"
-        ],
-        "media": [
-            {
-                "type": "image",
-                "url": "https:\/\/mir-s3-cdn-cf.behance.net\/projects\/max_808\/ae0919164750399.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
                 "thumbnail": ""
             }
         ]

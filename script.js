@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.8 + 0.3;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = (Math.random() - 0.5) * 0.4;
-                this.opacity = Math.random() * 0.45 + 0.08;
+                this.size = Math.random() * 1.5 + 0.3;
+                this.speedX = (Math.random() - 0.5) * 0.35;
+                this.speedY = (Math.random() - 0.5) * 0.35;
+                this.opacity = Math.random() * 0.4 + 0.06;
                 const r = Math.random();
-                this.color = r > 0.7 ? '#F4792B' : r > 0.4 ? '#E91E8C' : '#ffffff';
+                this.color = r > 0.7 ? '#FF1F8F' : r > 0.45 ? '#22E3FF' : '#ffffff';
             }
             update() {
                 this.x += this.speedX;
@@ -42,61 +42,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 40 : 90;
+        const particleCount = isMobile ? 35 : 75;
         for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-        let gridOffset = 0;
-
-        function drawVRGrid() {
-            const vp = { x: canvas.width / 2, y: canvas.height * 0.62 };
-            const cols = 16;
-            const rows = 10;
-
-            ctx.save();
-            for (let r = 0; r <= rows; r++) {
-                const t = (r + gridOffset % 1) / rows;
-                const perspective = t * t;
-                const y = vp.y + (canvas.height - vp.y) * perspective;
-                const xSpan = canvas.width * 0.5 + canvas.width * 0.5 * perspective;
-                const alpha = perspective * 0.22;
-                ctx.globalAlpha = alpha;
-                ctx.strokeStyle = '#F4792B';
-                ctx.lineWidth = 0.6;
-                ctx.beginPath();
-                ctx.moveTo(vp.x - xSpan / 2, y);
-                ctx.lineTo(vp.x + xSpan / 2, y);
-                ctx.stroke();
-            }
-            for (let c = 0; c <= cols; c++) {
-                const t = c / cols;
-                const xFar = vp.x - canvas.width * 0.5 + canvas.width * t;
-                const nearSpread = (xFar - vp.x) * 1.0;
-                ctx.globalAlpha = 0.08;
-                ctx.strokeStyle = '#E91E8C';
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(vp.x + (xFar - vp.x) * 0.01, vp.y);
-                ctx.lineTo(vp.x + nearSpread, canvas.height);
-                ctx.stroke();
-            }
-            ctx.restore();
-            gridOffset += 0.008;
-        }
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawVRGrid();
             particles.forEach(p => { p.update(); p.draw(); });
             particles.forEach((p, i) => {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = p.x - particles[j].x;
                     const dy = p.y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 90) {
+                    if (dist < 100) {
                         ctx.save();
-                        ctx.globalAlpha = (1 - dist / 90) * 0.08;
-                        ctx.strokeStyle = '#F4792B';
-                        ctx.lineWidth = 0.5;
+                        ctx.globalAlpha = (1 - dist / 100) * 0.07;
+                        ctx.strokeStyle = '#FF1F8F';
+                        ctx.lineWidth = 0.4;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -110,425 +71,346 @@ document.addEventListener('DOMContentLoaded', function() {
         animateParticles();
     }
 
-    // ===== TYPING EFFECT =====
-    const typedEl = document.getElementById('typed-text');
-    if (typedEl) {
-        const roles = ['Immersive VR Worlds', 'Photorealistic 3D Models', 'Real-time Environments', 'VR Training Simulations', 'Interactive 3D Experiences', 'Unity XR Applications'];
-        let roleIdx = 0, charIdx = 0, deleting = false;
+    // ===== SCROLL PROGRESS BAR =====
+    const progressBar = document.createElement('div');
+    progressBar.id = 'scroll-progress';
+    document.body.appendChild(progressBar);
 
-        function typeLoop() {
-            const current = roles[roleIdx];
-            if (!deleting) {
-                typedEl.textContent = current.slice(0, ++charIdx);
-                if (charIdx === current.length) {
-                    deleting = true;
-                    setTimeout(typeLoop, 1800);
-                    return;
-                }
-                setTimeout(typeLoop, 80);
-            } else {
-                typedEl.textContent = current.slice(0, --charIdx);
-                if (charIdx === 0) {
-                    deleting = false;
-                    roleIdx = (roleIdx + 1) % roles.length;
-                    setTimeout(typeLoop, 400);
-                    return;
-                }
-                setTimeout(typeLoop, 45);
-            }
-        }
-        typeLoop();
+    // ===== SCROLL HANDLER =====
+    const nav = document.getElementById('main-nav');
+    function onScroll() {
+        const scrollY = window.scrollY;
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? (scrollY / docH) * 100 : 0;
+        progressBar.style.width = pct + '%';
+
+        // Nav scrolled state
+        if (nav) nav.classList.toggle('scrolled', scrollY > 40);
+
+        // Active nav link tracking
+        const sections = document.querySelectorAll('section[id]');
+        let current = '';
+        sections.forEach(sec => {
+            if (scrollY >= sec.offsetTop - 140) current = sec.getAttribute('id');
+        });
+        document.querySelectorAll('nav.top ul li a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+        });
     }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-    // ===== STATS COUNTER =====
-    function animateCounter(el) {
-        const target = parseInt(el.getAttribute('data-target'));
-        const duration = 1800;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.textContent = Math.floor(current);
-            if (current >= target) clearInterval(timer);
-        }, 16);
-    }
+    // ===== HERO PARALLAX =====
+    const heroLeft = document.querySelector('.hero-left');
+    const heroArt  = document.querySelector('.hero-art');
+    window.addEventListener('scroll', function() {
+        const y = window.scrollY;
+        if (heroLeft) heroLeft.style.transform = `translateY(${y * 0.18}px)`;
+        if (heroArt)  heroArt.style.transform  = `translateY(${y * 0.10}px)`;
+    }, { passive: true });
 
-    const counterObserver = new IntersectionObserver((entries) => {
+    // ===== SCROLL REVEAL =====
+    const revealMap = [
+        { sel: '.hero-meta',        cls: 'reveal-down', delay: 0 },
+        { sel: '.eyebrow',          cls: 'reveal-up',   delay: 0 },
+        { sel: '.hero-title',       cls: 'reveal-up',   delay: 100 },
+        { sel: '.hero-sub',         cls: 'reveal-up',   delay: 220 },
+        { sel: '.hero-cta',         cls: 'reveal-up',   delay: 340 },
+        { sel: '.hero-art',         cls: 'reveal-up',   delay: 180 },
+        { sel: '.sec-head',         cls: 'reveal-up',   delay: 0 },
+        { sel: '.about-portrait',   cls: 'reveal-up',   delay: 0 },
+        { sel: '.about-text',       cls: 'reveal-up',   delay: 120 },
+        { sel: '.stat',             cls: 'reveal-up',   delay: 0, stagger: 80 },
+        { sel: '.cap',              cls: 'reveal-up',   delay: 0, stagger: 60 },
+        { sel: '.reel-wrap > div',  cls: 'reveal-up',   delay: 0, stagger: 120 },
+        { sel: '.contact-grid > div', cls: 'reveal-up', delay: 0, stagger: 120 },
+        { sel: '.contact h2',       cls: 'reveal-up',   delay: 0 },
+        { sel: '.contact-lead',     cls: 'reveal-up',   delay: 80 },
+        { sel: '.filters',          cls: 'reveal-up',   delay: 0 },
+    ];
+
+    revealMap.forEach(({ sel, cls, delay, stagger }) => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+            el.classList.add('reveal', cls);
+            el.style.transitionDelay = ((delay || 0) + (stagger ? i * stagger : 0)) + 'ms';
+        });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                document.querySelectorAll('.stat-number').forEach(animateCounter);
-                counterObserver.disconnect();
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
 
-    const statsEl = document.querySelector('.hero-stats');
-    if (statsEl) counterObserver.observe(statsEl);
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Mobile Menu Toggle
+    // Observe dynamically added project cards
+    const gridObserver = new MutationObserver(mutations => {
+        mutations.forEach(m => {
+            m.addedNodes.forEach(node => {
+                if (node.nodeType === 1 && node.classList.contains('project-card')) {
+                    node.classList.add('reveal', 'reveal-up');
+                    revealObserver.observe(node);
+                    setTimeout(() => {
+                        const rect = node.getBoundingClientRect();
+                        if (rect.top < window.innerHeight) node.classList.add('revealed');
+                    }, 50);
+                }
+            });
+        });
+    });
+    const grid = document.querySelector('.projects-grid');
+    if (grid) gridObserver.observe(grid, { childList: true });
+
+    // ===== MOBILE MENU =====
     const mobileBtn = document.getElementById('mobile-menu-btn');
-    const navMenu = document.getElementById('nav-menu');
+    const navMenu   = document.getElementById('nav-menu');
     mobileBtn?.addEventListener('click', function(e) {
         e.stopPropagation();
         navMenu.classList.toggle('show');
     });
-    // Tap outside to close nav
     document.addEventListener('click', function(e) {
         if (navMenu?.classList.contains('show') && !navMenu.contains(e.target) && e.target !== mobileBtn) {
             navMenu.classList.remove('show');
         }
     });
 
-    // Smooth scrolling for anchor links
+    // ===== SMOOTH SCROLL =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('nav-menu').classList.remove('show');
+                navMenu?.classList.remove('show');
             }
         });
     });
 
-    const modal = document.getElementById('projectModal');
-    const closeBtn = document.querySelector('.close');
+    // ===== PROJECT GRID =====
+    const modal        = document.getElementById('projectModal');
+    const closeBtn     = document.querySelector('.close');
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectsGrid = document.querySelector('.projects-grid');
-    
+    const projectsGrid  = document.querySelector('.projects-grid');
+
     let currentLightboxMedia = [];
-    let currentLightboxIdx = 0;
+    let currentLightboxIdx   = 0;
 
     const lightboxOverlay = document.getElementById('lightboxOverlay');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const lightboxPrev = document.querySelector('.lightbox-prev');
-    const lightboxNext = document.querySelector('.lightbox-next');
-
-    function openLightbox(index) {
-        if (!currentLightboxMedia || currentLightboxMedia.length === 0) return;
-        currentLightboxIdx = index;
-        lightboxImg.src = currentLightboxMedia[currentLightboxIdx].url;
-        lightboxOverlay.classList.add('active');
-        
-        if (currentLightboxMedia.length <= 1) {
-            lightboxPrev.style.display = 'none';
-            lightboxNext.style.display = 'none';
-        } else {
-            lightboxPrev.style.display = 'flex';
-            lightboxNext.style.display = 'flex';
-        }
-    }
-
-    function closeLightbox() {
-        if (lightboxOverlay) lightboxOverlay.classList.remove('active');
-        setTimeout(() => { if (lightboxImg) lightboxImg.src = ''; }, 300);
-    }
-
-    lightboxClose?.addEventListener('click', closeLightbox);
-    
-    lightboxNext?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentLightboxIdx = (currentLightboxIdx + 1) % currentLightboxMedia.length;
-        openLightbox(currentLightboxIdx);
-    });
-
-    lightboxPrev?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentLightboxIdx = (currentLightboxIdx - 1 + currentLightboxMedia.length) % currentLightboxMedia.length;
-        openLightbox(currentLightboxIdx);
-    });
-
-    lightboxOverlay?.addEventListener('click', (e) => {
-        if (e.target === lightboxOverlay) {
-            closeLightbox();
-        }
-    });
-
-    const globalMainImg = document.getElementById('modalMainImg');
-    if (globalMainImg) {
-        globalMainImg.style.cursor = 'zoom-in';
-        globalMainImg.title = 'Click to view full screen';
-        globalMainImg.addEventListener('click', function() {
-            if (currentLightboxMedia.length > 0) {
-                let displayUrl = globalMainImg.src;
-                let targetIdx = 0;
-                currentLightboxMedia.forEach((media, idx) => {
-                    if (displayUrl.includes(media.url)) targetIdx = idx;
-                });
-                openLightbox(targetIdx);
-            }
-        });
-    }
-
-    let projects = [];
-
-    // Fetch projects from JSON
-    fetch('data/projects.json')
-        .then(response => response.json())
-        .then(data => {
-            projects = data;
-            renderProjects(projects);
-            // Set VR Projects as default
-            document.querySelector('.filter-btn[data-filter="vr"]')?.click();
-        })
-        .catch(err => console.error("Error loading projects: ", err));
+    const lightboxImg     = document.getElementById('lightboxImg');
+    const lightboxClose   = document.querySelector('.lightbox-close');
+    const lightboxPrev    = document.querySelector('.lightbox-prev');
+    const lightboxNext    = document.querySelector('.lightbox-next');
 
     function renderProjects(projectsToRender) {
         if (!projectsGrid) return;
-        projectsGrid.innerHTML = ''; // clear grid
+        projectsGrid.innerHTML = '';
 
-        projectsToRender.forEach(p => {
-            let thumbUrl = '';
-            if (p.media && p.media.length > 0) {
-                let m = p.media[0];
+        projectsToRender.forEach((p, i) => {
+            let thumbUrl = p.thumbnail || '';
+            if (!thumbUrl && p.media && p.media.length > 0) {
+                const m = p.media[0];
                 if (m.type === 'image') thumbUrl = m.url;
                 else if (m.type === 'video') {
-                    const videoId = m.url.split('/').pop().split('?')[0];
-                    thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-                }
-                else if (m.type === 'sketchfab') thumbUrl = m.thumbnail;
+                    const vid = m.url.split('/').pop().split('?')[0];
+                    thumbUrl = `https://img.youtube.com/vi/${vid}/maxresdefault.jpg`;
+                } else if (m.type === 'sketchfab') thumbUrl = m.thumbnail || '';
             }
 
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.setAttribute('data-project-id', p.id);
-            card.setAttribute('data-category', p.category || 'all');
+            const num    = String(i + 1).padStart(2, '0');
+            const catTxt = (p.subtitle || p.category || '').toUpperCase();
 
-            let categoryText = p.subtitle ? `<p>${p.subtitle}</p>` : '';
-            if(!categoryText && p.category) categoryText = `<p>${p.category}</p>`;
+            const card = document.createElement('article');
+            card.className = 'project-card card h-tall';
+            card.setAttribute('data-category', p.category || 'all');
+            card.setAttribute('data-project-id', p.id);
 
             card.innerHTML = `
-                <div class="project-image">
-                    <img src="${thumbUrl}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'">
+                <div class="card-thumb">
+                    ${thumbUrl
+                        ? `<img src="${thumbUrl}" alt="${p.title}" loading="lazy">`
+                        : ''
+                    }
                 </div>
-                <div class="project-info">
-                    <h3>${p.title}</h3>
-                    ${categoryText}
+                <div class="meta">
+                    <div>
+                        <div class="cat">${catTxt}</div>
+                        <div class="ttl">${p.title}</div>
+                    </div>
+                    <div class="card-num">N° ${num}</div>
                 </div>
             `;
 
-            // Click event for modal
-            card.addEventListener('click', function() {
-                openProjectModal(p);
-            });
-
-            // Touch feedback for mobile
-            card.addEventListener('touchstart', function() {
-                this.classList.add('active-touch');
-            });
-            card.addEventListener('touchend', function() {
-                this.classList.remove('active-touch');
-            });
-
+            card.addEventListener('click', () => openProjectModal(p));
             projectsGrid.appendChild(card);
         });
     }
 
-    // Function to open modal with project data
-    function openProjectModal(project) {
-        if (!project) return;
-        
-        // Populate lightbox media with only images
-        currentLightboxMedia = project.media ? project.media.filter(m => m.type === 'image') : [];
-        
-        // Reset modal scroll position
-        const modalContent = document.querySelector('.modal-content');
-        if(modalContent) modalContent.scrollTop = 0;
-        
-        // Set basic info
-        document.getElementById('modalTitle').textContent = project.title || '';
-        document.getElementById('modalSubtitle').textContent = project.subtitle || '';
-        document.getElementById('modalDescription').textContent = project.description || '';
-        
-        // Set code link if available
-        const codeLink = document.getElementById('modalCodeLink');
-        if (project.codeLink) {
-            codeLink.href = project.codeLink;
-            codeLink.style.display = 'inline-block';
-        } else {
-            codeLink.style.display = 'none';
-        }
+    // Fetch projects
+    fetch('data/projects.json')
+        .then(r => r.json())
+        .then(data => {
+            renderProjects(data);
+            // Default: show VR projects
+            document.querySelector('.filter-btn[data-filter="vr"]')?.click();
+        })
+        .catch(err => console.error('Error loading projects:', err));
 
-        const codeLink2 = document.getElementById('modalLink');
-        if (project.codeLink2) {
-            codeLink2.href = project.codeLink2;
-            codeLink2.style.display = 'inline-block';
-        } else {
-            codeLink2.style.display = 'none';
-        }
-        
-        // Set technologies
-        const techList = document.getElementById('modalTechList');
-        techList.innerHTML = '';
-        if(project.technologies) {
-            project.technologies.forEach(tech => {
-                const li = document.createElement('li');
-                li.textContent = tech;
-                techList.appendChild(li);
-            });
-        }
-        
-        // Handle media
-        const mainImg = document.getElementById('modalMainImg');
-        const videoFrame = document.getElementById('modalVideo');
-        const sketchfabFrame = document.getElementById('modalSketchfab');
-        const thumbnailsContainer = document.getElementById('mediaThumbnails');
-        
-        // Clear previous media
-        mainImg.style.display = 'none';
-        videoFrame.style.display = 'none';
-        thumbnailsContainer.innerHTML = '';
-        sketchfabFrame.style.display = 'none';
-        
-        // Load first media item if available
-        if (project.media && project.media.length > 0) {
-            const firstMedia = project.media[0];
-            showMedia(firstMedia);
-            
-            // Create thumbnails
-            project.media.forEach((media, index) => {
-                const thumb = document.createElement('img');
-                if (media.type === 'video') {
-                    const videoId = media.url.split('/').pop().split('?')[0];
-                    thumb.src = `https://img.youtube.com/vi/${videoId}/default.jpg`;
-                } else if (media.type === 'sketchfab') {
-                    thumb.src = media.thumbnail || 'https://via.placeholder.com/150?text=3D';
-                } else {
-                    thumb.src = media.url;
-                }
-                thumb.alt = `Thumbnail ${index + 1}`;
-                thumb.classList.add('media-thumb');
-                if (media.type === 'video' || media.type === 'sketchfab') {
-                    thumb.classList.add('video-thumb');
-                }
-                thumb.dataset.index = index;
-                
-                thumb.addEventListener('click', () => {
-                    showMedia(media);
-                    document.querySelectorAll('.media-thumb').forEach(t => 
-                        t.classList.remove('active'));
-                    thumb.classList.add('active');
-                });
-                
-                thumbnailsContainer.appendChild(thumb);
-            });
-            
-            // Activate first thumbnail
-            thumbnailsContainer.firstChild?.classList.add('active');
-        }
-        
-        // Show modal
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        // Add touch events for mobile closing
-        document.addEventListener('touchstart', handleTouchStart, { passive: false });
-        document.addEventListener('touchmove', handleTouchMove, { passive: false });
-    }
-
-    // Touch handling for mobile swipe to close
-    let touchStartY = 0;
-    function handleTouchStart(e) {
-        touchStartY = e.touches[0].clientY;
-    }
-    
-    function handleTouchMove(e) {
-        if (!touchStartY) return;
-        const touchY = e.touches[0].clientY;
-        const modalContent = document.querySelector('.modal-content');
-        
-        // If user is scrolling up at the top of modal, allow page scroll
-        if (modalContent.scrollTop <= 0 && touchY > touchStartY) {
-            e.preventDefault();
-            closeModal();
-        }
-        touchStartY = 0;
-    }
-
-    function showMedia(media) {
-        const mainImg = document.getElementById('modalMainImg');
-        const videoFrame = document.getElementById('modalVideo');
-        const sketchfabFrame = document.getElementById('modalSketchfab');
-        
-        if (media.type === 'image') {
-            mainImg.src = media.url;
-            mainImg.alt = 'Project Image';
-            mainImg.style.display = 'block';
-            videoFrame.style.display = 'none';
-            sketchfabFrame.style.display = 'none';
-        } else if (media.type === 'video') {
-            videoFrame.src = media.url;
-            mainImg.style.display = 'none';
-            videoFrame.style.display = 'block';
-            sketchfabFrame.style.display = 'none';
-        } else if (media.type === 'sketchfab') {
-           sketchfabFrame.src = media.url;
-           mainImg.style.display = 'none';
-           videoFrame.style.display = 'none';
-           sketchfabFrame.style.display = 'block';
-        }
-    }
-
-    // Filter projects when button is clicked
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            // Filter projects
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                card.style.display = (filterValue === 'all' || 
-                    category?.toLowerCase() === filterValue?.toLowerCase()) ? 'block' : 'none';
+    // Filter
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const val = btn.getAttribute('data-filter');
+            document.querySelectorAll('.project-card').forEach(card => {
+                const cat = card.getAttribute('data-category') || '';
+                const show = val === 'all' || cat.toLowerCase() === val.toLowerCase();
+                card.style.display = show ? '' : 'none';
             });
         });
     });
 
-    // Close modal functions
+    // ===== LIGHTBOX =====
+    function openLightbox(index) {
+        if (!currentLightboxMedia.length) return;
+        currentLightboxIdx = index;
+        lightboxImg.src = currentLightboxMedia[currentLightboxIdx].url;
+        lightboxOverlay.classList.add('active');
+        const multi = currentLightboxMedia.length > 1;
+        if (lightboxPrev) lightboxPrev.style.display = multi ? 'flex' : 'none';
+        if (lightboxNext) lightboxNext.style.display = multi ? 'flex' : 'none';
+    }
+
+    function closeLightbox() {
+        lightboxOverlay?.classList.remove('active');
+        setTimeout(() => { if (lightboxImg) lightboxImg.src = ''; }, 300);
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxNext?.addEventListener('click', e => {
+        e.stopPropagation();
+        openLightbox((currentLightboxIdx + 1) % currentLightboxMedia.length);
+    });
+    lightboxPrev?.addEventListener('click', e => {
+        e.stopPropagation();
+        openLightbox((currentLightboxIdx - 1 + currentLightboxMedia.length) % currentLightboxMedia.length);
+    });
+    lightboxOverlay?.addEventListener('click', e => { if (e.target === lightboxOverlay) closeLightbox(); });
+
+    const globalMainImg = document.getElementById('modalMainImg');
+    if (globalMainImg) {
+        globalMainImg.style.cursor = 'zoom-in';
+        globalMainImg.addEventListener('click', function() {
+            if (currentLightboxMedia.length > 0) {
+                const url = globalMainImg.src;
+                let idx = 0;
+                currentLightboxMedia.forEach((m, i) => { if (url.includes(m.url)) idx = i; });
+                openLightbox(idx);
+            }
+        });
+    }
+
+    // ===== MODAL =====
+    function openProjectModal(project) {
+        if (!project) return;
+        currentLightboxMedia = project.media ? project.media.filter(m => m.type === 'image') : [];
+
+        const mc = document.querySelector('.modal-content');
+        if (mc) mc.scrollTop = 0;
+
+        document.getElementById('modalTitle').textContent       = project.title || '';
+        document.getElementById('modalSubtitle').textContent    = project.subtitle || '';
+        document.getElementById('modalDescription').textContent = project.description || '';
+
+        const codeLink = document.getElementById('modalCodeLink');
+        codeLink.href         = project.codeLink || '#';
+        codeLink.style.display = project.codeLink ? 'inline-flex' : 'none';
+
+        const projLink = document.getElementById('modalLink');
+        projLink.href         = project.codeLink2 || '#';
+        projLink.style.display = project.codeLink2 ? 'inline-flex' : 'none';
+
+        const techList = document.getElementById('modalTechList');
+        techList.innerHTML = '';
+        (project.technologies || []).forEach(tech => {
+            const li = document.createElement('li');
+            li.textContent = tech;
+            techList.appendChild(li);
+        });
+
+        const mainImg        = document.getElementById('modalMainImg');
+        const videoFrame     = document.getElementById('modalVideo');
+        const sketchfabFrame = document.getElementById('modalSketchfab');
+        const thumbsContainer = document.getElementById('mediaThumbnails');
+
+        mainImg.style.display        = 'none';
+        videoFrame.style.display     = 'none';
+        sketchfabFrame.style.display = 'none';
+        thumbsContainer.innerHTML    = '';
+
+        if (project.media && project.media.length > 0) {
+            showMedia(project.media[0]);
+            project.media.forEach((media, idx) => {
+                const thumb = document.createElement('img');
+                if (media.type === 'video') {
+                    const vid = media.url.split('/').pop().split('?')[0];
+                    thumb.src = `https://img.youtube.com/vi/${vid}/default.jpg`;
+                } else if (media.type === 'sketchfab') {
+                    thumb.src = media.thumbnail || '';
+                } else {
+                    thumb.src = media.url;
+                }
+                thumb.alt = `Thumbnail ${idx + 1}`;
+                thumb.className = 'media-thumb' + (media.type !== 'image' ? ' video-thumb' : '');
+                thumb.addEventListener('click', () => {
+                    showMedia(media);
+                    document.querySelectorAll('.media-thumb').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbsContainer.appendChild(thumb);
+            });
+            thumbsContainer.firstChild?.classList.add('active');
+        }
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showMedia(media) {
+        const mainImg        = document.getElementById('modalMainImg');
+        const videoFrame     = document.getElementById('modalVideo');
+        const sketchfabFrame = document.getElementById('modalSketchfab');
+        if (media.type === 'image') {
+            mainImg.src = media.url; mainImg.style.display = 'block';
+            videoFrame.style.display = 'none'; sketchfabFrame.style.display = 'none';
+        } else if (media.type === 'video') {
+            videoFrame.src = media.url; videoFrame.style.display = 'block';
+            mainImg.style.display = 'none'; sketchfabFrame.style.display = 'none';
+        } else if (media.type === 'sketchfab') {
+            sketchfabFrame.src = media.url; sketchfabFrame.style.display = 'block';
+            mainImg.style.display = 'none'; videoFrame.style.display = 'none';
+        }
+    }
+
     function closeModal() {
-        if(modal) modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        // Reset video iframe
-        const videoFrame = document.getElementById('modalVideo');
-        if(videoFrame) videoFrame.src = '';
-        // Remove touch event listeners
-        document.removeEventListener('touchstart', handleTouchStart);
-        document.removeEventListener('touchmove', handleTouchMove);
+        if (modal) modal.style.display = 'none';
+        document.body.style.overflow = '';
+        const vf = document.getElementById('modalVideo');
+        if (vf) vf.src = '';
     }
 
     closeBtn?.addEventListener('click', closeModal);
-    window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && modal && modal.style.display === 'block') closeModal();
+    window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            if (modal?.style.display === 'block') closeModal();
+            if (lightboxOverlay?.classList.contains('active')) closeLightbox();
+        }
     });
-
-    // Add CSS for touch feedback
-    const style = document.createElement('style');
-    style.textContent = `
-        .project-card.active-touch {
-            transform: scale(0.98);
-            opacity: 0.9;
-            transition: transform 0.1s ease, opacity 0.1s ease;
-        }
-        @media (max-width: 768px) {
-            .modal-content {
-                max-height: 90vh;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            .modal-body {
-                flex-direction: column;
-            }
-            .main-media {
-                height: 40vh;
-            }
-        }
-    `;
-    document.head.appendChild(style);
 });

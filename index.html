@@ -1,340 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahroz Ahmed - VR ,Game Developer & 3D Artis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-
-    <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shahroz Ahmed — VR & 3D Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
 </head>
-
 <body>
-    <div class="grain-overlay"></div>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
-    <div class="bg-orb orb-4"></div>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">Shahroz Ahmed</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="Shahroz-Resume.pdf">Resume</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <canvas id="hero-canvas"></canvas>
-        <div class="container hero-container">
-            <div class="hero-badge">
-                <i class="fas fa-vr-cardboard"></i>
-                VR &amp; 3D Specialist
-            </div>
-            <h1>Shahroz <span class="name-accent">Ahmed</span></h1>
-            <div class="hero-role">
-                <span>Specializing in </span><span id="typed-text" class="typed-text"></span><span
-                    class="typed-cursor">|</span>
-            </div>
-            <p class="hero-description">Turning imagination into reality — from photorealistic 3D models and real-time
-                environments to fully immersive VR simulations built in Unity.</p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Hire Me</a>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/shahroz-ahmed1995/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.linkedin.com/in/shahroz-ahmed1995/"><i class="fab fa-behance"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number-wrap"><span class="stat-number" data-target="50">0</span><span
-                            class="stat-plus">+</span></div>
-                    <span class="stat-label">Projects Done</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number-wrap"><span class="stat-number" data-target="5">0</span><span
-                            class="stat-plus">+</span></div>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number-wrap"><span class="stat-number" data-target="20">0</span><span
-                            class="stat-plus">+</span></div>
-                    <span class="stat-label">Happy Clients</span>
-                </div>
-            </div>
-            <div class="tech-strip">
-                <span class="tech-strip-label">Tools & Engines</span>
-                <div class="tech-pills">
-                    <span class="tech-pill"><i class="fas fa-cube"></i> Unity 3D</span>
-                    <span class="tech-pill"><i class="fas fa-shapes"></i> Blender</span>
-                    <span class="tech-pill"><i class="fas fa-fire"></i> Unreal Engine</span>
-                    <span class="tech-pill"><i class="fas fa-drafting-compass"></i> Maya</span>
-                    <span class="tech-pill"><i class="fas fa-paint-roller"></i> Substance Painter</span>
-                    <span class="tech-pill"><i class="fas fa-vr-cardboard"></i> Meta Quest</span>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll</span>
-        </div>
-    </section>
+<!-- ── SCROLL PROGRESS (injected by JS) ── -->
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Great experience in Unity development, VR development, 3D graphic design, and animation, highly
-                        skilled and versatile professional in the field of digital media. With a passion for
-                        cutting-edge technology and a talent for bringing ideas to life, has built a strong reputation
-                        as an innovator and problem-solver.</p>
-                    <p>As a Unity developer, worked on a variety of projects, ranging from mobile games and interactive
-                        experiences to virtual and augmented reality applications. With expertise in C# programming, UI
-                        design, and game mechanics, ability to create immersive and engaging experiences that keep users
-                        coming back for more.</p>
-                    <p>In addition to my development work, I am also a skilled 3D graphic designer and animator. I have
-                        created high-quality 3D models and animations for a wide range of applications, from product
-                        demos and marketing materials to explainer videos and interactive presentations.</p>
-                    <a href="Shahroz-Resume.pdf" class="btn">Download CV</a>
-                </div>
-                <div class="about-image">
-                    <img src="images/ShahrozAhmed.png" alt="Shahroz Ahmed">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ── NAV ── -->
+<nav class="top" id="main-nav">
+  <div class="brand">SHAHROZ<span>.</span></div>
+  <ul id="nav-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="cta" href="#contact">Hire Me →</a>
+    <div class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-vr-cardboard"></i>
-                    </div>
-                    <h3>XR (VR/AR/MR) Engineering</h3>
-                    <p>Developing high-fidelity, cross-platform immersive applications for Meta Quest, Pico, and PC VR
-                        headsets using Unity and OpenXR.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <h3>Immersive Training Simulations</h3>
-                    <p>Designing interactive, physics-based VR learning modules and safety training solutions replacing
-                        traditional corporate coursework.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Performance Optimization</h3>
-                    <p>Executing GPU/CPU profiling, draw call batching, LOD implementation, and shader optimization to
-                        securely hit 72+ FPS targets on standalone hardware.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <h3>Interactive 3D Environments</h3>
-                    <p>Building real-time, interactive 3D digital spaces using Unity with advanced UI Toolkit
-                        implementations and dynamic narrative systems.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-object-group"></i>
-                    </div>
-                    <h3>3D Asset Pipeline</h3>
-                    <p>Modeling, UV unwrapping, rigging, and skeletal animation of optimal 3D assets using Blender,
-                        fully integrated for game engines.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile & Cross-Platform</h3>
-                    <p>End-to-end development, APK tuning, and deployment of reliable mobile games and applications
-                        across various Android hardware profiles.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3>Technical Leadership</h3>
-                    <p>Leading XR development teams, managing agile sprint lifecycles, structured code reviews, and
-                        scheduling delivery milestones.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3>Spatial UI/UX Design</h3>
-                    <p>Architecting intuitive, user-centric spatial interfaces specifically designed for VR workflows
-                        using the modern Unity XR Interaction Toolkit.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3>Multiplayer Architecture</h3>
-                    <p>Integrating robust networking solutions for shared interactive experiences using FishNet, Photon
-                        (PUN), Fusion 2, and Unity Netcode.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Some of my work</p>
+  <div class="hero-meta">
+    <div class="col">
+      <span>PORTFOLIO</span>
+      <strong>Vol. 03</strong>
+    </div>
+    <div class="col" style="text-align:center">
+      <span>Currently Based</span>
+      <strong>REMOTE WORLDWIDE</strong>
+    </div>
+    <div class="col" style="text-align:right">
+      <span>Available For</span>
+      <strong>Full-time · Contract · Freelance</strong>
+    </div>
+  </div>
 
-            <!-- Project Filter Buttons -->
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="vr">VR Projects</button>
-                <button class="filter-btn" data-filter="3d">3D Models</button>
-                <button class="filter-btn" data-filter="game">Game Development</button>
-                <button class="filter-btn" data-filter="Video">Animation Video</button>
-                <button class="filter-btn" data-filter="all">All Projects</button>
-
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- Projects will be loaded dynamically from data/projects.json here -->
-            </div>
-        </div>
-    </section>
-
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-body">
-                <!-- Media Gallery -->
-                <div class="modal-gallery">
-                    <div class="main-media">
-                        <img id="modalMainImg" src="" alt="Project Image" class="active">
-                        <iframe id="modalVideo" class="youtube-embed" frameborder="0" allowfullscreen></iframe>
-
-                        <!-- Add this for Sketchfab -->
-                        <iframe id="modalSketchfab" class="sketchfab-embed" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="media-thumbnails" id="mediaThumbnails">
-                        <!-- Thumbnails will be added here by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Project Info -->
-                <div class="modal-text">
-                    <div class="modal-header">
-                        <h2 id="modalTitle"></h2>
-                        <h3 id="modalSubtitle"></h3>
-                    </div>
-                    <div class="modal-description">
-                        <p id="modalDescription"></p>
-                    </div>
-                    <div class="modal-tech">
-                        <h4>Technologies Used:</h4>
-                        <ul id="modalTechList"></ul>
-                    </div>
-                    <div class="modal-links">
-
-                        <a href="" class="btn secondary" id="modalCodeLink" style="display: none;">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-
-                        <a href="" class="btn secondary" id="modalLink" style="display: none;">
-                            <i class="fab fa-behance"></i> View Project
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="eyebrow">— VR · 3D · Unity · Game Dev</div>
+      <h1 class="display hero-title">
+        <span class="row">SHAHROZ</span>
+        <span class="row">AHMED</span>
+      </h1>
+      <p class="hero-sub">
+        Turning imagination into reality — from <strong>photorealistic 3D models</strong> and
+        real-time environments to fully <strong>immersive VR simulations</strong> built in Unity.
+        Specializing in Meta Quest, OpenXR, and high-fidelity training experiences.
+      </p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#projects">View The Work <span class="arrow"></span></a>
+        <a class="btn ghost" href="#contact">Hire Me</a>
+        <a class="btn ghost" href="Shahroz-Resume.pdf">Download CV</a>
+      </div>
     </div>
 
-    <!-- Lightbox Overlay -->
-    <div id="lightboxOverlay" class="lightbox-overlay">
-        <span class="lightbox-close">&times;</span>
-        <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
-        <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="Fullscreen Project Image">
-        </div>
-        <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    <div class="hero-art">
+      <div class="tag">NOW SHOWING</div>
+      <div class="img-frame hero-img-frame">
+        <img src="images/ShahrozAhmed.png" alt="Shahroz Ahmed">
+      </div>
+      <div class="badge-bottom"><span class="dot"></span> Live · Available for projects</div>
+    </div>
+  </div>
+
+  <div class="hero-meta hero-meta-bottom">
+    <div class="scroll-cue">
+      <span>Scroll to enter</span>
+      <span class="line"></span>
+    </div>
+    <div class="col" style="text-align:right">
+      <span>Reel · 2026</span>
+      <strong>01 / 06</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>UNITY 3D</span><span class="star">✦</span>
+    <span>META QUEST</span><span class="star">✦</span>
+    <span>OPENXR</span><span class="star">✦</span>
+    <span>BLENDER</span><span class="star">✦</span>
+    <span>UNREAL ENGINE</span><span class="star">✦</span>
+    <span>SUBSTANCE PAINTER</span><span class="star">✦</span>
+    <span>C# / .NET</span><span class="star">✦</span>
+    <span>SHADER GRAPH</span><span class="star">✦</span>
+    <span>FISHNET · PHOTON · FUSION</span><span class="star">✦</span>
+    <span>UNITY 3D</span><span class="star">✦</span>
+    <span>META QUEST</span><span class="star">✦</span>
+    <span>OPENXR</span><span class="star">✦</span>
+    <span>BLENDER</span><span class="star">✦</span>
+    <span>UNREAL ENGINE</span><span class="star">✦</span>
+    <span>SUBSTANCE PAINTER</span><span class="star">✦</span>
+    <span>C# / .NET</span><span class="star">✦</span>
+    <span>SHADER GRAPH</span><span class="star">✦</span>
+    <span>FISHNET · PHOTON · FUSION</span><span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about sec-pad" id="about">
+  <div class="max">
+    <div class="sec-head">
+      <h2 class="display">About<br>The Maker</h2>
+      <div class="sec-num"><strong>01</strong> / 05 · Chapter One</div>
     </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p>Let's work together</p>
-            <div class="contact-info">
-                <p>Learn • Create • Showcase • Discussion</p>
-                <h3>Let's Work Together</h3>
-                <p>shahrozahmedshaikh@gmail</p>
-            </div>
-            <div class="contact-links">
-                <a href="mailto:shahrozahmedshaikh@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email Me</span>
-                </a>
-                <a href="#" class="contact-link">
-                    <i class="fas fa-phone"></i>
-                    <span>Call Me</span>
-                </a>
-            </div>
+    <div class="about-grid">
+      <div class="about-portrait">
+        <div class="img-frame portrait-frame">
+          <img src="images/ShahrozAhmed.png" alt="Shahroz Ahmed">
         </div>
-    </section>
+        <div class="label">SHAHROZ A.</div>
+      </div>
+      <div class="about-text">
+        <p class="lead">
+          A versatile Unity developer and 3D artist with deep experience across VR development,
+          real-time graphics, animation, and the full XR delivery pipeline.
+        </p>
+        <p>
+          As a Unity developer I've shipped mobile games, interactive experiences, and virtual /
+          augmented reality applications — combining C# engineering, UI design, and game mechanics
+          to build immersive experiences that keep users coming back.
+        </p>
+        <p>
+          As a 3D artist and animator I produce high-fidelity assets and motion for product demos,
+          marketing, explainer videos, and interactive presentations — modeled, textured, and
+          optimized to ship on real hardware.
+        </p>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Shahroz Ahmed</div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="copyright">© 2023 Shahroz Ahmed. All rights reserved.</p>
-            </div>
+        <div class="stats">
+          <div class="stat"><div class="v">40+</div><div class="l">Projects Shipped</div></div>
+          <div class="stat"><div class="v">06</div><div class="l">Years Experience</div></div>
+          <div class="stat"><div class="v">25+</div><div class="l">Happy Clients</div></div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="eyebrow" style="margin-top:30px">Stack &amp; Tooling</div>
+        <div class="tool-strip">
+          <span class="tool-chip">Unity 3D</span>
+          <span class="tool-chip">Blender</span>
+          <span class="tool-chip">Unreal Engine</span>
+          <span class="tool-chip">Maya</span>
+          <span class="tool-chip">Substance Painter</span>
+          <span class="tool-chip">Meta Quest</span>
+          <span class="tool-chip">OpenXR</span>
+          <span class="tool-chip">C# / .NET</span>
+          <span class="tool-chip">Shader Graph</span>
+          <span class="tool-chip">FishNet · Photon · Fusion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CAPABILITIES ── -->
+<section class="caps sec-pad" id="capabilities">
+  <div class="max">
+    <div class="sec-head">
+      <h2 class="display">What I<br>Build</h2>
+      <div class="sec-num"><strong>02</strong> / 05 · Nine Disciplines</div>
+    </div>
+
+    <div class="caps-grid">
+      <div class="cap">
+        <div class="n">/ 01</div>
+        <div><h3>XR (VR / AR / MR) Engineering</h3>
+        <p>High-fidelity, cross-platform immersive applications for Meta Quest, Pico, and PC VR headsets — built in Unity and OpenXR.</p></div>
+        <div class="cap-tag">→ Unity · OpenXR · Quest</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 02</div>
+        <div><h3>Immersive Training Simulations</h3>
+        <p>Interactive, physics-based VR learning modules and safety training that replace traditional corporate coursework.</p></div>
+        <div class="cap-tag">→ Sim · Physics · LMS</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 03</div>
+        <div><h3>Performance Optimization</h3>
+        <p>GPU/CPU profiling, draw-call batching, LOD implementation, and shader optimization to securely hit 72+ FPS on standalone hardware.</p></div>
+        <div class="cap-tag">→ Profiler · URP · GPU</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 04</div>
+        <div><h3>Interactive 3D Environments</h3>
+        <p>Real-time interactive 3D spaces with advanced UI Toolkit implementations and dynamic narrative systems.</p></div>
+        <div class="cap-tag">→ UI Toolkit · Narrative</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 05</div>
+        <div><h3>3D Asset Pipeline</h3>
+        <p>Modeling, UV unwrapping, rigging, and skeletal animation of optimized 3D assets in Blender, fully integrated for game engines.</p></div>
+        <div class="cap-tag">→ Blender · Maya · Painter</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 06</div>
+        <div><h3>Mobile &amp; Cross-Platform</h3>
+        <p>End-to-end development, APK tuning, and deployment of reliable mobile games and applications across Android hardware profiles.</p></div>
+        <div class="cap-tag">→ Android · iOS · APK</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 07</div>
+        <div><h3>Technical Leadership</h3>
+        <p>Leading XR development teams — managing agile sprint lifecycles, structured code reviews, and delivery milestones.</p></div>
+        <div class="cap-tag">→ Lead · Agile · Reviews</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 08</div>
+        <div><h3>Spatial UI / UX Design</h3>
+        <p>Intuitive, user-centric spatial interfaces designed specifically for VR workflows using the modern Unity XR Interaction Toolkit.</p></div>
+        <div class="cap-tag">→ XRI · Spatial · UX</div>
+      </div>
+      <div class="cap">
+        <div class="n">/ 09</div>
+        <div><h3>Multiplayer Architecture</h3>
+        <p>Robust networking for shared interactive experiences using FishNet, Photon (PUN), Fusion 2, and Unity Netcode.</p></div>
+        <div class="cap-tag">→ FishNet · Photon · NGO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="projects sec-pad" id="projects">
+  <div class="max">
+    <div class="sec-head">
+      <h2 class="display">Selected<br>Work</h2>
+      <div class="sec-num"><strong>03</strong> / 05 · Featured Projects</div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="vr">VR Projects</button>
+      <button class="filter-btn" data-filter="3d">3D Models</button>
+      <button class="filter-btn" data-filter="game">Game Dev</button>
+      <button class="filter-btn" data-filter="Video">Animation</button>
+    </div>
+
+    <div class="proj-grid projects-grid" id="proj-grid">
+      <!-- Dynamically loaded from data/projects.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ── REEL ── -->
+<section class="reel" id="reel">
+  <div class="reel-wrap max">
+    <div>
+      <div class="eyebrow">— Showreel</div>
+      <h3 class="display">The Reel<br>2026</h3>
+      <p>A cut through six years of VR builds, real-time environments, and 3D animation work. Featuring the VR house tour, multiplayer training sims, and the photoreal asset pipeline.</p>
+      <div style="margin-top:24px">
+        <a class="btn primary" href="#contact">Get In Touch <span class="arrow"></span></a>
+      </div>
+    </div>
+    <div class="reel-video">
+      <iframe
+        src="https://www.youtube.com/embed/45NTGu7zKZ8?si=M1psvM9M9EmVkujU"
+        title="VR House Tour Showreel"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="max">
+    <div class="sec-head contact-head">
+      <div>
+        <div class="eyebrow">— Coming Up Next</div>
+        <p class="contact-lead">Learn · Create · Showcase ·</p>
+        <h2 class="display">Let's<br>Build It.</h2>
+      </div>
+      <div class="sec-num"><strong>05</strong> / 05 · End Credits</div>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <p>
+          Got a VR training brief, a 3D pipeline that needs taming, or a game prototype that wants
+          shipping? I'm currently taking on full-time, contract, and freelance work — let's talk.
+        </p>
+        <div class="contact-mail">
+          <a href="mailto:shahrozahmedshaikh@gmail.com">shahrozahmedshaikh@gmail.com →</a>
+        </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:shahrozahmedshaikh@gmail.com">Email Me <span class="arrow"></span></a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/shahroz-ahmed1995/" target="_blank" rel="noopener">LinkedIn — @shahroz-ahmed1995</a>
+        </div>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="eyebrow" style="margin-bottom:20px">Quick Info</div>
+        <dl>
+          <dt>Name</dt><dd>Shahroz Ahmed</dd>
+          <dt>Based</dt><dd>Karachi, Pakistan</dd>
+          <dt>Remote</dt><dd>Worldwide</dd>
+          <dt>Discipline</dt><dd>VR / 3D / Unity</dd>
+          <dt>Status</dt><dd class="available">Available · 2026</dd>
+          <dt>Response</dt><dd>Within 24h</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot max">
+    <div>© MMXXVI · Shahroz Ahmed · All Rights Reserved</div>
+    <div class="foot-links">
+      <a href="#home">Top ↑</a>
+      <a href="https://www.linkedin.com/in/shahroz-ahmed1995/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:shahrozahmedshaikh@gmail.com">Email</a>
+      <a href="Shahroz-Resume.pdf">CV</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── PROJECT MODAL ── -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-body">
+      <div class="modal-gallery">
+        <div class="main-media">
+          <img id="modalMainImg" src="" alt="Project Image" class="active">
+          <iframe id="modalVideo" class="youtube-embed" frameborder="0" allowfullscreen></iframe>
+          <iframe id="modalSketchfab" class="sketchfab-embed" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="media-thumbnails" id="mediaThumbnails"></div>
+      </div>
+      <div class="modal-text">
+        <div class="modal-header">
+          <h2 id="modalTitle"></h2>
+          <h3 id="modalSubtitle"></h3>
+        </div>
+        <div class="modal-description"><p id="modalDescription"></p></div>
+        <div class="modal-tech">
+          <h4>Technologies Used:</h4>
+          <ul id="modalTechList"></ul>
+        </div>
+        <div class="modal-links">
+          <a href="" class="btn primary" id="modalCodeLink" style="display:none;"><i class="fab fa-github"></i> View Code</a>
+          <a href="" class="btn ghost"   id="modalLink"     style="display:none;"><i class="fab fa-behance"></i> View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightboxOverlay" class="lightbox-overlay">
+  <span class="lightbox-close">&times;</span>
+  <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="Fullscreen Project Image">
+  </div>
+  <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+</div>
+
 </body>
-
 </html>

@@ -110,6 +110,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             }
         }
 
+        // Handle card thumbnail upload
+        $thumbnailUrl = trim($_POST['card_thumbnail_url'] ?? '');
+        if (isset($_FILES['card_thumbnail_file']) && $_FILES['card_thumbnail_file']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = 'images/uploads/';
+            if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
+            $fileName = 'thumb_' . time() . '_' . basename($_FILES['card_thumbnail_file']['name']);
+            $targetPath = $uploadDir . $fileName;
+            if (move_uploaded_file($_FILES['card_thumbnail_file']['tmp_name'], $targetPath)) {
+                $thumbnailUrl = $targetPath;
+            }
+        }
+
         $newProject = [
             'id' => $id > 0 ? $id : (empty($projects) ? 1 : max(array_column($projects, 'id')) + 1),
             'title' => stripslashes($_POST['title']),
@@ -119,6 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             'technologies' => array_filter(array_map('trim', explode(',', $_POST['technologies']))),
             'codeLink' => trim($_POST['codeLink'] ?? ''),
             'codeLink2' => trim($_POST['codeLink2'] ?? ''),
+            'thumbnail' => $thumbnailUrl,
             'media' => $mediaArray
         ];
 
@@ -199,9 +212,11 @@ $projects = getProjects();
                 <p style="text-align:center;">No projects found.</p>
             <?php endif; ?>
             <?php foreach (array_reverse($projects) as $p): ?>
-                <?php 
+                <?php
                 $thumbUrl = 'https://via.placeholder.com/80x80?text=No+Img';
-                if (!empty($p['media']) && count($p['media']) > 0) {
+                if (!empty($p['thumbnail'])) {
+                    $thumbUrl = $p['thumbnail'];
+                } elseif (!empty($p['media']) && count($p['media']) > 0) {
                     $m = $p['media'][0];
                     if ($m['type'] === 'image') $thumbUrl = $m['url'];
                     elseif ($m['type'] === 'video') {
@@ -284,6 +299,24 @@ $projects = getProjects();
                     </div>
                 </div>
                 
+                <h3 style="margin-top: 20px; font-size: 18px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">Card Thumbnail</h3>
+                <div style="display:flex; gap:20px; align-items:flex-start; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:8px; padding:15px; margin-bottom:15px;">
+                    <div id="card-thumb-preview" style="width:120px; height:120px; flex-shrink:0; border-radius:8px; background:#000; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.1);">
+                        <span style="color:#555; font-size:12px; text-align:center; padding:10px;">No Preview</span>
+                    </div>
+                    <div style="flex:1;">
+                        <div class="form-group">
+                            <label>Upload Thumbnail Image</label>
+                            <input type="file" name="card_thumbnail_file" accept="image/*" style="padding:9px;" onchange="previewCardThumb(this)">
+                            <small style="color:#888; font-size:11px; margin-top:4px; display:block;">Recommended resolution: <strong style="color:#aaa;">600 × 400 px</strong> (3:2 ratio) — minimum 300 × 200 px, max 2 MB.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Or Thumbnail URL</label>
+                            <input type="text" name="card_thumbnail_url" id="pCardThumbUrl" placeholder="https://..." onchange="previewCardThumbUrl(this)">
+                        </div>
+                    </div>
+                </div>
+
                 <h3 style="margin-top: 20px; font-size: 18px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">Media Gallery</h3>
                 
                 <div id="media-container">
@@ -400,6 +433,24 @@ $projects = getProjects();
             }
         }
 
+        function previewCardThumb(input) {
+            const box = document.getElementById('card-thumb-preview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = e => { box.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;">`; };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function previewCardThumbUrl(input) {
+            const box = document.getElementById('card-thumb-preview');
+            if (input.value) {
+                box.innerHTML = `<img src="${input.value}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=color:#555;font-size:12px;text-align:center;padding:10px>Bad URL</span>'">`;
+            } else {
+                box.innerHTML = `<span style="color:#555;font-size:12px;text-align:center;padding:10px">No Preview</span>`;
+            }
+        }
+
         function openForm() {
             document.getElementById('projectFormModal').style.display = 'flex';
             document.getElementById('formTitle').innerText = 'Add Project';
@@ -411,7 +462,9 @@ $projects = getProjects();
             document.getElementById('pTech').value = '';
             document.getElementById('pCodeLink').value = '';
             document.getElementById('pCodeLink2').value = '';
-            
+            document.getElementById('pCardThumbUrl').value = '';
+            document.getElementById('card-thumb-preview').innerHTML = '<span style="color:#555;font-size:12px;text-align:center;padding:10px">No Preview</span>';
+
             document.getElementById('media-container').innerHTML = '';
             addMediaRow(); // Add an empty row to start
         }
@@ -427,7 +480,17 @@ $projects = getProjects();
             document.getElementById('pTech').value = (p.technologies || []).join(', ');
             document.getElementById('pCodeLink').value = p.codeLink || '';
             document.getElementById('pCodeLink2').value = p.codeLink2 || '';
-            
+
+            // Populate card thumbnail
+            const thumbUrl = p.thumbnail || '';
+            document.getElementById('pCardThumbUrl').value = thumbUrl;
+            const box = document.getElementById('card-thumb-preview');
+            if (thumbUrl) {
+                box.innerHTML = `<img src="${thumbUrl}" style="width:100%;height:100%;object-fit:cover;">`;
+            } else {
+                box.innerHTML = '<span style="color:#555;font-size:12px;text-align:center;padding:10px">No Preview</span>';
+            }
+
             // Populate media rows
             document.getElementById('media-container').innerHTML = ''; // clear initial empty row
             if (p.media && p.media.length > 0) {
